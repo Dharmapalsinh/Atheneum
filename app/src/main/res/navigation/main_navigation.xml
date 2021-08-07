@@ -9,5 +9,59 @@
         android:id="@+id/dashboardFragment"
         android:name="com.codery.atheneum.ui.main.dashboard.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/view_all_genres"
+            app:destination="@id/genresFragment" />
+        <action
+            android:id="@+id/dash_to_genre"
+            app:destination="@id/genreViewerFragment" />
+        <action
+            android:id="@+id/view_all_books"
+            app:destination="@id/allBooksFragment" />
+        <action
+            android:id="@+id/view_issued_book"
+            app:destination="@id/issuedBookViewerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/genresFragment"
+        android:name="com.codery.atheneum.ui.main.genre.GenresFragment"
+        android:label="fragment_genres"
+        tools:layout="@layout/fragment_genres" >
+        <action
+            android:id="@+id/genres_to_genre"
+            app:destination="@id/genreViewerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/genreViewerFragment"
+        android:name="com.codery.atheneum.ui.main.genre.GenreViewerFragment"
+        android:label="fragment_genre_viewer"
+        tools:layout="@layout/fragment_genre_viewer" >
+        <action
+            android:id="@+id/genre_to_book"
+            app:destination="@id/bookViewerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookViewerFragment"
+        android:name="com.codery.atheneum.ui.main.books.BookViewerFragment"
+        android:label="fragment_book_viewer"
+        tools:layout="@layout/fragment_book_viewer" />
+    <fragment
+        android:id="@+id/allBooksFragment"
+        android:name="com.codery.atheneum.ui.main.genre.AllBooksFragment"
+        android:label="fragment_all_books"
+        tools:layout="@layout/fragment_all_books" >
+        <action
+            android:id="@+id/all_to_book"
+            app:destination="@id/bookViewerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/issuedBookViewerFragment"
+        android:name="com.codery.atheneum.ui.main.books.IssuedBookViewerFragment"
+        android:label="fragment_issued_book_viewer"
+        tools:layout="@layout/fragment_issued_book_viewer" >
+        <action
+            android:id="@+id/issued_to_book"
+            app:destination="@id/bookViewerFragment" />
+    </fragment>
 </navigation>
