@@ -1,13 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.main.dashboard.DashboardFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+        <import type="com.codery.atheneum.ui.main.dashboard.DashboardSection"/>
+        <variable
+            name="vm"
+            type="com.codery.atheneum.ui.main.dashboard.DashboardViewModel" />
+        <variable
+            name="currentSection"
+            type="DashboardSection" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Dashboard Fragment" />
+        android:background="@color/light"
+        tools:context=".ui.main.dashboard.DashboardFragment">
 
-</FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/dash_bottom_nav"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:background="@color/white"
+            android:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                viewSelected="@{currentSection == DashboardSection.Home}"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{() -> vm.updateSection(DashboardSection.Home)}"
+                android:scaleType="center"
+                android:src="@drawable/home_selector"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                viewSelected="@{currentSection == DashboardSection.Issued}"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{() -> vm.updateSection(DashboardSection.Issued)}"
+                android:scaleType="center"
+                android:src="@drawable/book_selector"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                viewSelected="@{currentSection == DashboardSection.Library}"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{() -> vm.updateSection(DashboardSection.Library)}"
+                android:scaleType="center"
+                android:src="@drawable/lib_selector"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                viewSelected="@{currentSection == DashboardSection.Profile}"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{() -> vm.updateSection(DashboardSection.Profile)}"
+                android:scaleType="center"
+                android:src="@drawable/profile_selector"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/dash_nav_host"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@+id/dash_bottom_nav"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/dashboard_navigation" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
