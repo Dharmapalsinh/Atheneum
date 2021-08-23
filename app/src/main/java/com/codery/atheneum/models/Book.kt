@@ -1,6 +1,11 @@
 package com.codery.atheneum.models
 
 import android.os.Parcelable
+import com.codery.atheneum.app.InvalidDocument
+import com.codery.atheneum.data.Bindings
+import com.codery.atheneum.data.repos.AllGenresRepo
+import com.google.firebase.Timestamp
+import com.google.firebase.firestore.DocumentSnapshot
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -14,4 +19,24 @@ data class Book(
     val length : Int,
     val publisher : String,
     val availability: Availability
-) : Parcelable
+) : Parcelable {
+    
+    companion object {
+        @Suppress("Unchecked_Cast")
+        suspend fun fromDocument(snap : DocumentSnapshot, genreRepo: AllGenresRepo) : Book {
+            val id = snap.id
+            val name = snap.get(Bindings.Book.name) as? String ?: throw InvalidDocument("No Book Name")
+            val author = snap.get(Bindings.Book.author) as? String ?: throw InvalidDocument("No Book Author")
+            val image = snap.get(Bindings.Book.image) as? String ?: throw InvalidDocument("No Book Image")
+            val desc = snap.get(Bindings.Book.desc) as? String ?: throw InvalidDocument("No Book Description")
+            val length = snap.get(Bindings.Book.length) as? Long ?: throw InvalidDocument("No Book Length")
+            val publisher = snap.get(Bindings.Book.publisher) as? String ?: throw InvalidDocument("No Book Publisher")
+            val rawGenres = snap.get(Bindings.Book.genres) as? List<String> ?: throw InvalidDocument("No Book Genres")
+            val genres = rawGenres.map { genreId -> genreRepo.genreById(genreId) }
+            val available = snap.get(Bindings.Book.available) as? Boolean ?: throw InvalidDocument("No Book Availabilsnapy Status")
+            val est = snap.get(Bindings.Book.est) as? Timestamp?
+            val availability = Availability.getAvailability(available, est)
+            return Book(id, name, author, image, desc, genres, length.toInt(), publisher, availability)
+        }
+    }
+}

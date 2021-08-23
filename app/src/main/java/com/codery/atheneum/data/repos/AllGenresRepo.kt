@@ -1,6 +1,9 @@
-package com.codery.atheneum.data
+package com.codery.atheneum.data.repos
 
 import com.codery.atheneum.app.DocumentNotFound
+import com.codery.atheneum.data.AtheneumDb
+import com.codery.atheneum.data.genreById
+import com.codery.atheneum.data.queryAllGenres
 import com.codery.atheneum.models.Genre
 import com.manavtamboli.axion.core.Delicate
 import com.manavtamboli.firefly.firestore.pagination.TypedPagination.Companion.paginateIn

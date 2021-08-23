@@ -1,5 +1,7 @@
-package com.codery.atheneum.data
+package com.codery.atheneum.data.repos
 
+import com.codery.atheneum.data.AtheneumDb
+import com.codery.atheneum.data.queryTopGenres
 import com.codery.atheneum.models.Genre
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.manavtamboli.firefly.firestore.single.fetch
