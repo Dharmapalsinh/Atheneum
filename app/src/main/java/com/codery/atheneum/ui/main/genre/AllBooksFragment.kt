@@ -1,7 +1,7 @@
 package com.codery.atheneum.ui.main.genre
 
 import com.codery.atheneum.databinding.FragmentAllBooksBinding
-import com.manavtamboli.axion.binding.components.BindingFragment
+import com.manavtamboli.axion.binding.BindingFragment
 
 class AllBooksFragment : BindingFragment<FragmentAllBooksBinding>(FragmentAllBooksBinding::class.java){
 

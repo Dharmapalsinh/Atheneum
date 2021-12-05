@@ -3,9 +3,8 @@ package com.codery.atheneum.ui.main.dashboard
 import com.codery.atheneum.R
 import com.codery.atheneum.databinding.FragmentDashboardBinding
 import com.codery.atheneum.ui.main.dashboard.DashboardViewModel.Companion.DashboardVM
-import com.manavtamboli.axion.binding.BindingComponent.Companion.binding
-import com.manavtamboli.axion.binding.components.BindingFragment
-import com.manavtamboli.axion.lifecycle.FlowScope.Companion.flows
+import com.manavtamboli.axion.binding.BindingFragment
+import com.manavtamboli.axion.lifecycle.flows
 import com.manavtamboli.axion.navigation.findNavController
 import com.manavtamboli.axion.navigation.safeNavigate
 
