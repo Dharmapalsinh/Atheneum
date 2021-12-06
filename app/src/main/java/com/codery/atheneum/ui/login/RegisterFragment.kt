@@ -47,7 +47,7 @@ class RegisterFragment : BindingFragment<FragmentRegisterBinding>(FragmentRegist
                     .add(user)
                     .addOnSuccessListener { documentReference ->
                         Log.d("tagged", "DocumentSnapshot added with ID: ${documentReference.id}")
-                        findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToDashboardFragment())
+//                        findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToDashboardFragment())
 
                     }
                     .addOnFailureListener { e ->
