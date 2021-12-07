@@ -2,6 +2,7 @@ package com.codery.atheneum.ui.login
 
 import android.content.Intent
 import android.util.Log
+import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.*
 import androidx.lifecycle.Lifecycle.State.STARTED
@@ -19,15 +20,16 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.manavtamboli.axion.binding.BindingFragment
 import com.manavtamboli.firefly.auth.GoogleSignInContract
+import com.manavtamboli.firefly.firestore.single.fetch
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-
+// TODO @Dharmapal - Loading State
 class LogInFragment : BindingFragment<FragmentLogInBinding>(FragmentLogInBinding::class.java) {
 
     private val auth: FirebaseAuth = Firebase.auth
-    val gso by lazy {
+    private val gso by lazy {
         GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -44,7 +46,7 @@ class LogInFragment : BindingFragment<FragmentLogInBinding>(FragmentLogInBinding
             viewModel.firebaseAuthWithGoogle(acc.idToken ?: throw IllegalArgumentException("Id token cannot be null, but was null."))
         }
         .onFailure {
-            Log.d("error","onfailure $it")
+            viewModel.state.value = LoginState.Failed("Cancelled")
         }
     }
 
@@ -52,16 +54,11 @@ class LogInFragment : BindingFragment<FragmentLogInBinding>(FragmentLogInBinding
         lifecycleScope.launch {
             repeatOnLifecycle(STARTED){
                 viewModel.state.collect {
+                    binding.loginProgress.visibility = if (it is LoginState.Loading) View.VISIBLE else View.GONE
                     when(it) {
                         is LoginState.Failed -> {
                             // display failed message
                             it.message
-                        }
-                        LoginState.Idle -> {
-                            // do nothing
-                        }
-                        LoginState.Loading -> {
-                            // make progress bar visible
                         }
                         LoginState.Registered -> {
                             // navigate to main activity
@@ -73,6 +70,7 @@ class LogInFragment : BindingFragment<FragmentLogInBinding>(FragmentLogInBinding
                             // navigate to register fragment
                             findNavController().navigate(R.id.action_logInFragment_to_registerFragment)
                         }
+                        else -> {}
                     }
                 }
             }
@@ -85,8 +83,6 @@ class LogInFragment : BindingFragment<FragmentLogInBinding>(FragmentLogInBinding
         val currentUser = auth.currentUser
         if (currentUser != null){
             viewModel.fetchUser()
-            // user is signed in
-//            findNavController().navigate(R.id.action_logInFragment_to_dashboardFragment)
         }
     }
 
@@ -102,44 +98,21 @@ class LogInFragment : BindingFragment<FragmentLogInBinding>(FragmentLogInBinding
     override fun FragmentLogInBinding.initialize() {
         btnSignIn.setOnClickListener {
             signIn()
+            viewModel.state.value = LoginState.Loading
         }
         btnSignOut.setOnClickListener {
             signOut()
         }
-//        viewModel.isRegister.observe(viewLifecycleOwner){ isRegistered ->
-//            isRegistered ?: return@observe
-//            if (isRegistered){
-//                Log.d("tagged","isregisterd true")
-//                val  intent=Intent(requireContext(),MainActivity::class.java)
-//                startActivity(intent)
-//                requireActivity().finish()
-//            }
-//
-//            else{
-////                Log.d("tagged","false isregistered")
-//                findNavController().navigate(R.id.action_logInFragment_to_registerFragment)
-//            }
-//        }
-
-
     }
 }
 
-data class Email(val email:String)
 
 class LoginViewModel : ViewModel(){
 
-    val isRegister : MutableLiveData<Boolean> = MutableLiveData()
     private val auth = Firebase.auth
-
-//    val state : MutableLiveData<LoginState> = MutableLiveData()
-
     val state : MutableStateFlow<LoginState> = MutableStateFlow(LoginState.Idle)
 
     fun firebaseAuthWithGoogle(idToken: String) {
-        // Loading
-        state.value = LoginState.Loading
-
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
             .addOnSuccessListener {
@@ -151,11 +124,16 @@ class LoginViewModel : ViewModel(){
     }
 
     fun fetchUser(){
+        state.value = LoginState.Loading
         Firebase.firestore.collection("DGV")
             .whereEqualTo("Email", auth.currentUser?.email)
             .get()
             .addOnSuccessListener {
                 state.value = if (it.documents.isNotEmpty()) LoginState.Registered else LoginState.Unregistered
+                Firebase.firestore.collection("asdfasd")
+                    .get()
+                    .addOnSuccessListener {  }
+                    .addOnFailureListener {  }
             }
             .addOnFailureListener {
                 state.value = LoginState.Failed("asdbfiausdbf")
