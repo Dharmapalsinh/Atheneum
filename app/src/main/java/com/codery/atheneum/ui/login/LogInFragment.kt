@@ -1,10 +1,14 @@
 package com.codery.atheneum.ui.login
 
+import android.content.Intent
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.findNavController
 import com.codery.atheneum.R
 import com.codery.atheneum.databinding.FragmentLogInBinding
+import com.codery.atheneum.ui.main.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -31,12 +35,13 @@ class LogInFragment : BindingFragment<FragmentLogInBinding>(FragmentLogInBinding
 
     private val viewModel : LoginViewModel by viewModels()
 
+
     private val launcher = registerForActivityResult(GoogleSignInContract()){
         it.onSuccess { acc ->
             viewModel.firebaseAuthWithGoogle(acc.idToken ?: throw IllegalArgumentException("Id token cannot be null, but was null."))
         }
         .onFailure {
-
+                Log.d("error","onfailure $it")
         }
     }
 
@@ -64,6 +69,26 @@ class LogInFragment : BindingFragment<FragmentLogInBinding>(FragmentLogInBinding
         btnSignIn.setOnClickListener {
             signIn()
         }
+        btnSignOut.setOnClickListener {
+            signOut()
+        }
+        viewModel.isRegister.observe(viewLifecycleOwner){ isRegistered ->
+            isRegistered ?: return@observe
+            if (isRegistered){
+                Log.d("tagged","isregisterd true")
+                val  intent=Intent(requireContext(),MainActivity::class.java)
+                startActivity(intent)
+                requireActivity().finish()
+            }
+
+            else{
+//                Log.d("tagged","false isregistered")
+                findNavController().navigate(R.id.action_logInFragment_to_registerFragment)
+            }
+
+        }
+
+
     }
 }
 
@@ -71,7 +96,7 @@ data class Email(val email:String)
 
 class LoginViewModel : ViewModel(){
 
-    val isRegister:Boolean=false
+    val isRegister : MutableLiveData<Boolean> = MutableLiveData()
     private val auth = Firebase.auth
     lateinit var emailList:MutableLiveData<Email>
 
@@ -88,10 +113,11 @@ class LoginViewModel : ViewModel(){
                     .addOnSuccessListener {
                         if (it.documents.isEmpty()) {
                             // UnRegistered User
+                            isRegister.value=false
 
                         } else {
-                            // Registered Use
-
+                            // Registered User
+                            isRegister.value = true
                         }
 
                     }
