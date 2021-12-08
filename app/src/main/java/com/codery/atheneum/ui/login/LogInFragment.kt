@@ -130,10 +130,7 @@ class LoginViewModel : ViewModel(){
             .get()
             .addOnSuccessListener {
                 state.value = if (it.documents.isNotEmpty()) LoginState.Registered else LoginState.Unregistered
-                Firebase.firestore.collection("asdfasd")
-                    .get()
-                    .addOnSuccessListener {  }
-                    .addOnFailureListener {  }
+
             }
             .addOnFailureListener {
                 state.value = LoginState.Failed("asdbfiausdbf")
