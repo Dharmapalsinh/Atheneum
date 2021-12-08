@@ -1,5 +1,7 @@
 package com.codery.atheneum.ui.main
 
+import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -18,13 +20,13 @@ class MainActivity : BindingActivity<ActivityMainBinding>(ActivityMainBinding::c
 
     private val navController by lazy { supportFragmentManager.findNavController(R.id.main_nav_host) }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         viewModel.navigation.observe(this){
+            Log.i("TAGGED", it.toString())
             if (it != null) navController.navigate(it)
         }
     }
-
 }
 
 class MainViewModel : ViewModel(){
