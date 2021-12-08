@@ -18,13 +18,16 @@
             app:destination="@id/genreViewerFragment" />
         <action
             android:id="@+id/view_all_books"
-            app:destination="@id/allBooksFragment" />
+            app:destination="@id/allBooksFragment2" />
         <action
             android:id="@+id/view_issued_book"
             app:destination="@id/issuedBookViewerFragment" />
         <action
             android:id="@+id/action_dashboardFragment_to_bookViewerFragment"
             app:destination="@id/bookViewerFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_dashboardFragment_to_allBooksFragment2"-->
+<!--            app:destination="@id/allBooksFragment2" />-->
     </fragment>
     <fragment
         android:id="@+id/genresFragment"
@@ -49,15 +52,15 @@
         android:name="com.codery.atheneum.ui.main.books.BookViewerFragment"
         android:label="fragment_book_viewer"
         tools:layout="@layout/fragment_book_viewer" />
-    <fragment
-        android:id="@+id/allBooksFragment"
-        android:name="com.codery.atheneum.ui.main.genre.AllBooksFragment"
-        android:label="fragment_all_books"
-        tools:layout="@layout/fragment_all_books" >
-        <action
-            android:id="@+id/all_to_book"
-            app:destination="@id/bookViewerFragment" />
-    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/allBooksFragment"-->
+<!--        android:name="com.codery.atheneum.ui.main.books.AllBooksFragment"-->
+<!--        android:label="fragment_all_books"-->
+<!--        tools:layout="@layout/fragment_all_books2" >-->
+<!--        <action-->
+<!--            android:id="@+id/all_to_book"-->
+<!--            app:destination="@id/bookViewerFragment" />-->
+<!--    </fragment>-->
     <fragment
         android:id="@+id/issuedBookViewerFragment"
         android:name="com.codery.atheneum.ui.main.dashboard.issued.IssuedBookViewerFragment"
@@ -67,4 +70,9 @@
             android:id="@+id/issued_to_book"
             app:destination="@id/bookViewerFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/allBooksFragment2"
+        android:name="com.codery.atheneum.ui.main.books.AllBooksFragment"
+        android:label="fragment_all_books2"
+        tools:layout="@layout/fragment_all_books2" />
 </navigation>

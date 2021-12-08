@@ -40,7 +40,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::c
         txtCatAllBooks.setOnClickListener{
             Toast.makeText(requireContext(),"Home Fragment to all books Fragment Navigation",Toast.LENGTH_SHORT).show();
             // TODO : Navigate to AllBooks Fragment
+            mainViewModel.navigate(DashboardFragmentDirections.viewAllBooks())
         }
+
         this.recyclerGenre.adapter = adapterGenre
         this.recyclerRecentlyAdded.adapter = adapterRecentlyAddedBook
     }

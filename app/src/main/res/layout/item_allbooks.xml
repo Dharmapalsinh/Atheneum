@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/image_book"
+        android:layout_width="104dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bookmark"
+        android:layout_width="12dp"
+        android:layout_height="14dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/bookmark_icon"
+        app:layout_constraintStart_toEndOf="@+id/txt_bookname"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/txt_bookname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="60dp"
+        android:ellipsize="end"
+        android:letterSpacing="0.04"
+        android:maxLines="1"
+        android:paddingRight="0dp"
+        android:text="Shingeki No Kyojin"
+        android:textColor="#2E3A59"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_book"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_author"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="60dp"
+        android:ellipsize="end"
+        android:letterSpacing="0.04"
+        android:maxLines="1"
+        android:text="Mikasa Ackerman"
+        android:textColor="#667188"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_book"
+        app:layout_constraintTop_toBottomOf="@+id/txt_bookname" />
+
+    <TextView
+        android:id="@+id/txt_science"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="32dp"
+        android:background="#2E3A5926"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:letterSpacing="0.04"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:text="Science"
+        android:textColor="#2E3A59"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/image_book"
+        app:layout_constraintTop_toBottomOf="@id/txt_author" />
+
+    <TextView
+        android:id="@+id/txt_inspiration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="32dp"
+        android:background="#2E3A5926"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:letterSpacing="0.04"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:text="Inspiration"
+        android:textColor="#2E3A59"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/txt_science"
+        app:layout_constraintTop_toBottomOf="@id/txt_author" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
