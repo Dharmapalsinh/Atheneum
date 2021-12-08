@@ -13,6 +13,7 @@ enum class DashboardSection {
     Profile;
 
     companion object {
+
         fun getDirs(sections : Pair<DashboardSection, DashboardSection>) : NavDirections? {
             val (old, new) = sections
             return when(old) {

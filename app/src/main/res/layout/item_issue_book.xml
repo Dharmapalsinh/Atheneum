@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
+
+    <ImageView
+        android:id="@+id/issueBook_Image"
+        android:layout_width="104dp"
+        android:layout_height="135dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/issueBook_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/crimson_text"
+        android:letterSpacing="0.04"
+        android:text="Hello World How"
+        android:textColor="#2E3A59"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/issueBook_Image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/issueBook_Author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:letterSpacing="0.04"
+        android:text="Mikasa Ackerman"
+        android:textColor="#667188"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/issueBook_Image"
+        app:layout_constraintTop_toBottomOf="@+id/issueBook_Name" />
+
+    <TextView
+        android:id="@+id/issueBook_dueOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="26dp"
+        android:fontFamily="@font/lato"
+        android:letterSpacing="0.04"
+        android:text="Due On : "
+        android:textColor="#667188"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/issueBook_Image"
+        app:layout_constraintTop_toBottomOf="@+id/issueBook_Author" />
+
+    <TextView
+        android:id="@+id/issueBook_dueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:fontFamily="@font/lato"
+        android:letterSpacing="0.04"
+        android:text="12th Jan 2021"
+        android:textColor="#667188"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/issueBook_dueOn"
+        app:layout_constraintTop_toBottomOf="@+id/issueBook_Author" />
+
+    <TextView
+        android:id="@+id/issueBook_Status"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:background="#FFA95E"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:letterSpacing="0.04"
+        android:text="PENDING"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/issueBook_Image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/issueBook_Image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

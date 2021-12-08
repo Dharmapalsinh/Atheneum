@@ -22,6 +22,9 @@
         <action
             android:id="@+id/view_issued_book"
             app:destination="@id/issuedBookViewerFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_bookViewerFragment"
+            app:destination="@id/bookViewerFragment" />
     </fragment>
     <fragment
         android:id="@+id/genresFragment"
@@ -57,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/issuedBookViewerFragment"
-        android:name="com.codery.atheneum.ui.main.books.IssuedBookViewerFragment"
+        android:name="com.codery.atheneum.ui.main.dashboard.issued.IssuedBookViewerFragment"
         android:label="fragment_issued_book_viewer"
         tools:layout="@layout/fragment_issued_book_viewer" >
         <action

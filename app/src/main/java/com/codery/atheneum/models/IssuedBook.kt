@@ -1,5 +1,6 @@
 package com.codery.atheneum.models
 
+import androidx.recyclerview.widget.DiffUtil
 import java.time.LocalDate
 
 
@@ -36,4 +37,14 @@ sealed class IssuedBook {
         override val submittedOn: LocalDate?,
         val penalty : Int
     ) : IssuedBook()
+}
+
+object DiffIssuedBook : DiffUtil.ItemCallback<IssuedBook>(){
+    override fun areItemsTheSame(oldItem: IssuedBook, newItem: IssuedBook): Boolean {
+        return oldItem.bookId == newItem.bookId
+    }
+
+    override fun areContentsTheSame(oldItem: IssuedBook, newItem: IssuedBook): Boolean {
+        return oldItem == newItem
+    }
 }

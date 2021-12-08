@@ -1,16 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/light"
-    tools:context=".ui.main.dashboard.home.HomeFragment">
+<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:background="@color/light"-->
+<!--    tools:context=".ui.main.dashboard.home.HomeFragment">-->
 
-    <TextView
-        android:id="@+id/temp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Home Fragment" />
+<!--    <TextView-->
+<!--        android:id="@+id/temp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:text="Home Fragment" />-->
 
-</FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#E5E5E5"
+            tools:context=".ui.main.catalogue.CatalogueFragment">
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:background="#2E3A59"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="64dp"
+                android:text="Catalogue"
+                android:textColor="#E9F0F5"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="106dp"
+                android:background="#ffffff"
+                android:paddingHorizontal="16dp"
+                android:drawableEnd="@drawable/ic_baseline_search_24"
+                android:hint="Search books..."
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="44dp"
+                android:fontFamily="@font/lato"
+                android:letterSpacing="0.04"
+                android:text="Top Genres"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:textColor="#667188"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+            <TextView
+                android:id="@+id/txt_cat_all_genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:layout_marginEnd="22dp"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_blue"
+                android:fontFamily="@font/lato"
+                android:gravity="center"
+                android:letterSpacing="0.04"
+                android:text="All Genres"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:textColor="#1B7695"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_Genre"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="28dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16"
+                app:spanCount="2"
+                tools:itemCount="20"
+                tools:listitem="@layout/item_catalogue" />
+            <!--    android:layout_marginTop="50dp"-->
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:letterSpacing="0.04"
+                android:text="Newly Added"
+                android:textColor="#667188"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_Genre" />
+            <!--    android:layout_marginTop="50dp"-->
+            <TextView
+                android:id="@+id/txt_cat_all_books"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="22dp"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_blue"
+                android:fontFamily="@font/lato"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:letterSpacing="0.04"
+                android:text="All Books"
+                android:textColor="#1B7695"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_Genre" />
+
+            <!--    android:layout_marginTop="34dp"-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerRecentlyAdded"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView17"
+                tools:listitem="@layout/item_newly_catalogue" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+<!--</ScrollView>-->

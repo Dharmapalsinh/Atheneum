@@ -2,4 +2,10 @@
     <string name="app_name">Atheneum</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-</resources>
+    <string name="address">A8 Lorem Ipsum Society,\nOpp. Dolor Sit Amet,\nConsectuer, Spain</string>
+    <string name="national_pledge">India is my country and all Indians are my brothers and sisters.
+        I love my country and I am proud of its rich and varied heritage.
+        I shall always strive to be worthy of it.
+        I shall give my parents, teachers and all elders respect and treat everyone with courtesy.
+        To my country and my people, I pledge my devotion. In their well-being and prosperity alone lies my happiness</string>
+    </resources>

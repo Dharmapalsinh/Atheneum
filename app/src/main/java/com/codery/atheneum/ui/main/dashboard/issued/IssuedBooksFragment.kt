@@ -8,5 +8,7 @@ class IssuedBooksFragment : BindingFragment<FragmentIssuedBooksBinding>(Fragment
 
     override fun FragmentIssuedBooksBinding.initialize() {
         // Initialization Logic
+        
     }
+
 }
