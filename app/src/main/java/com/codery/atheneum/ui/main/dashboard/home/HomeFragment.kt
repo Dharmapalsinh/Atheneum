@@ -1,10 +1,13 @@
 package com.codery.atheneum.ui.main.dashboard.home
 
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.codery.atheneum.R
 import com.codery.atheneum.databinding.FragmentHomeBinding
+import com.codery.atheneum.ui.main.MainViewModel
+import com.codery.atheneum.ui.main.dashboard.DashboardFragmentDirections
 import com.manavtamboli.axion.binding.BindingFragment
 
 class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::class.java){
@@ -12,10 +15,12 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::c
     private val viewModel by viewModels<HomeViewModel>()
     private val viewModelNewBooks by viewModels<HomeViewModel>()
 
+    private val mainViewModel : MainViewModel by activityViewModels()
+
     private val adapterGenre = CatalogueGenreAdapter {
         Toast.makeText(requireContext(), "Genre Clicked - ${it.catGenreName}", Toast.LENGTH_SHORT)
             .show()
-//        findNavController().navigate(CatalogueFragmentDirections.actionCatalogueFragmentToGenreViewerFragment(it.catGenreName,it))
+        mainViewModel.navigate(DashboardFragmentDirections.viewGenre())
     }
 
     private val adapterRecentlyAddedBook = RecentlyAddedAdapter {

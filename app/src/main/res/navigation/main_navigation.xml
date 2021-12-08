@@ -14,7 +14,7 @@
             android:id="@+id/view_all_genres"
             app:destination="@id/genresFragment" />
         <action
-            android:id="@+id/dash_to_genre"
+            android:id="@+id/view_genre"
             app:destination="@id/genreViewerFragment" />
         <action
             android:id="@+id/view_all_books"
