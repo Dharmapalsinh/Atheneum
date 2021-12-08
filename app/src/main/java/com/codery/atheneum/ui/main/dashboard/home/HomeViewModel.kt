@@ -8,8 +8,11 @@ import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class CatalogueViewModel(application : Application) : AndroidViewModel(application) {
-    init{
+class HomeViewModel(application : Application) : AndroidViewModel(application) {
+
+    private val db = Firebase.firestore
+
+    init {
         addTopGenresFromFireStore()
         addNewlyBooksFromFireStore()
     }
@@ -18,7 +21,6 @@ class CatalogueViewModel(application : Application) : AndroidViewModel(applicati
     val viewBooks = MutableLiveData<List<CatalogueNewly>>(emptyList())
 
     private fun addTopGenresFromFireStore(){
-        val db = Firebase.firestore
         db.collection("Genres")
             .get()
             .addOnSuccessListener {
@@ -37,7 +39,6 @@ class CatalogueViewModel(application : Application) : AndroidViewModel(applicati
     }
 
     private fun addNewlyBooksFromFireStore(){
-        val db = Firebase.firestore
         db.collection("Book-Entry")
             .get()
             .addOnSuccessListener {
