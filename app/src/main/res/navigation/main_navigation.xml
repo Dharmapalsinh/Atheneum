@@ -25,7 +25,10 @@
         <action
             android:id="@+id/action_dashboardFragment_to_bookViewerFragment"
             app:destination="@id/bookViewerFragment" />
-<!--        <action-->
+        <action
+            android:id="@+id/action_dashboardFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <!--        <action-->
 <!--            android:id="@+id/action_dashboardFragment_to_allBooksFragment2"-->
 <!--            app:destination="@id/allBooksFragment2" />-->
     </fragment>
@@ -75,4 +78,9 @@
         android:name="com.codery.atheneum.ui.main.books.AllBooksFragment"
         android:label="fragment_all_books2"
         tools:layout="@layout/fragment_all_books2" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.codery.atheneum.ui.main.dashboard.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
 </navigation>
