@@ -1,6 +1,7 @@
 package com.codery.atheneum.data
 
 import androidx.lifecycle.MutableLiveData
+import com.codery.atheneum.data.Bindings.Book.author
 import com.codery.atheneum.models.Book
 import com.codery.atheneum.models.Genre
 import com.google.firebase.firestore.DocumentSnapshot
@@ -35,10 +36,13 @@ class GenreRepo {
             }
     }
 }
+data class book(val author:String, val name:String, val desc:String, val length:String, val publisher:String,
+                val genres:List<Genre>)
 
 class BookRepo(private val genreRepo: GenreRepo) {
 
     private val db = Firebase.firestore
+    val Books=MutableLiveData<List<book>>()
 
     init {
         fetch()
@@ -65,9 +69,11 @@ class BookRepo(private val genreRepo: GenreRepo) {
                     val finalGenres = allGenres.filter {
                         it.id in genreIds
                     }
+                    book(author,name,desc,length,publisher,finalGenres)
                 }
 
-                // TODO : update to livedata
+                Books.value= bookList
+
             }
             .addOnFailureListener {
                 throw RuntimeException()

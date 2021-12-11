@@ -19,11 +19,12 @@ class LibraryFragment : BindingFragment<FragmentLibraryBinding>(FragmentLibraryB
 
     override fun FragmentLibraryBinding.initialize() {
         // Initialization Logic
-        viewModel.Details.observe(viewLifecycleOwner){
-            it ?:return@observe
-            txtLibOpenTime.text=it._opentime
-            txtLibCloseTime.text=it._closetime
-            txtLibToday.text=it._Today
+        viewModel.Details.observe(viewLifecycleOwner) {
+            it ?: return@observe
+            txtLibOpenTime.text = it._opentime
+            txtLibCloseTime.text = it._closetime
+            txtLibToday.text = it._Today
+        }
     }
 
 
@@ -63,5 +64,4 @@ class LibraryViewModel:ViewModel(){
         super.onCleared()
         reg?.remove()
     }
-}
 }
