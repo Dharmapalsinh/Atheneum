@@ -58,7 +58,8 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
         private fun listenForRealtimeUpdates(){
             val db = Firebase.firestore
             val email = Firebase.auth.currentUser?.email.toString()
-            val query = db.collection("DGV").whereEqualTo("Email", "aisdnofiadsofin")
+            val query = db.collection("DGV").whereEqualTo("Email", email)
+
             reg = query.addSnapshotListener { snap, exception ->
                     when {
                         snap != null -> {
