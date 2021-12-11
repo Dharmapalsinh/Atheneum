@@ -19,6 +19,7 @@ class EditProfileFragment : BindingFragment<FragmentEditProfileBinding>(Fragment
 
     private val viewmodel:EditProfileViewModel by viewModels()
     val mainViewModel:MainViewModel by activityViewModels()
+
     override fun FragmentEditProfileBinding.initialize() {
 
         viewmodel.user.observe(viewLifecycleOwner){

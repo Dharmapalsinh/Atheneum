@@ -8,12 +8,12 @@ import com.codery.atheneum.R
 import com.codery.atheneum.databinding.FragmentHomeBinding
 import com.codery.atheneum.ui.main.MainViewModel
 import com.codery.atheneum.ui.main.dashboard.DashboardFragmentDirections
+import com.codery.atheneum.ui.main.genre.DataViewModel
 import com.manavtamboli.axion.binding.BindingFragment
 
 class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::class.java){
 
     private val viewModel by viewModels<HomeViewModel>()
-    private val viewModelNewBooks by viewModels<HomeViewModel>()
 
     private val mainViewModel : MainViewModel by activityViewModels()
 
@@ -52,7 +52,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::c
             if(it == null) return@observe
             adapterGenre.submitList(it)
         }
-        viewModelNewBooks.viewBooks.observe(viewLifecycleOwner){
+        viewModel.viewBooks.observe(viewLifecycleOwner){
             if(it == null) return@observe
             adapterRecentlyAddedBook.submitList(it)
         }
