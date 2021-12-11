@@ -1,27 +1,15 @@
 package com.codery.atheneum.ui.main.dashboard.profile
 
 import android.app.Application
-import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.compose.runtime.snapshots.SnapshotApplyResult
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import com.codery.atheneum.R
 import com.codery.atheneum.databinding.FragmentEditProfileBinding
-import com.codery.atheneum.ui.login.RegisterFragment
 import com.codery.atheneum.ui.main.MainViewModel
-import com.codery.atheneum.ui.main.dashboard.DashboardFragmentDirections
-import com.codery.atheneum.ui.main.dashboard.home.HomeFragmentDirections
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -74,7 +62,7 @@ sealed class SetDataState {
 
 class EditProfileViewModel(application: Application):AndroidViewModel(application){
     val db=Firebase.firestore
-    val user:MutableLiveData<ProfileFragment.profileUser?> = MutableLiveData(null)
+    val user:MutableLiveData<ProfileFragment.ProfileUser?> = MutableLiveData(null)
     val state:MutableLiveData<SetDataState> = MutableLiveData(SetDataState.Idle)
 
     init {
@@ -120,7 +108,7 @@ class EditProfileViewModel(application: Application):AndroidViewModel(applicatio
                 val name=it.documents.get(0).getString("Name")
                 val address=(it.documents.get(0).getString("address"))
                 val phone=(it.documents.get(0).getString("phone"))
-                user.value= ProfileFragment.profileUser(name,phone,address)
+                user.value= ProfileFragment.ProfileUser(name,phone,address)
 
             }
             .addOnFailureListener { exception ->
