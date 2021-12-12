@@ -18,7 +18,7 @@ class HomeViewModel(application : Application) : AndroidViewModel(application) {
     }
 
     val genres = MutableLiveData<List<CatalogueGenre>>(emptyList())
-    val viewBooks = MutableLiveData<List<CatalogueNewly>>(emptyList())
+    val viewBooks = MutableLiveData<List<NewCatalogue>>(emptyList())
 
     private fun addTopGenresFromFireStore(){
         db.collection("Genres")
@@ -46,7 +46,7 @@ class HomeViewModel(application : Application) : AndroidViewModel(application) {
                     val bookName = document.get("book_name") as String
                     val bookAuthor = document.get("book_author") as String
 
-                    val book1 = CatalogueNewly(bookName,bookAuthor,"VIEW")
+                    val book1 = NewCatalogue(bookName,bookAuthor,"VIEW")
                     return@map book1
                 }
                 viewBooks.value = bookList

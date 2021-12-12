@@ -26,6 +26,4 @@ class AllBooksFragment : BindingFragment<FragmentAllBooks2Binding>(FragmentAllBo
             adapter.submitList(it)
         }
     }
-
-
 }

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codery.atheneum.databinding.FragmentHomeBinding
 import com.codery.atheneum.databinding.ItemNewlyCatalogueBinding
 
-class RecentlyAddedAdapter(val onClick : (CatalogueNewly) -> Unit) : ListAdapter<CatalogueNewly, CatalogueViewHolder>(DiffCatalogueNewly){
+class RecentlyAddedAdapter(val onClick : (NewCatalogue) -> Unit) : ListAdapter<NewCatalogue, CatalogueViewHolder>(DiffCatalogueNewly){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatalogueViewHolder {
         val inflater : LayoutInflater = LayoutInflater.from(parent.context)
         val binding : ItemNewlyCatalogueBinding = ItemNewlyCatalogueBinding.inflate(inflater,parent,false)
@@ -16,7 +16,7 @@ class RecentlyAddedAdapter(val onClick : (CatalogueNewly) -> Unit) : ListAdapter
     }
 
     override fun onBindViewHolder(holder: CatalogueViewHolder, position: Int) {
-        val newlyCatalogue : CatalogueNewly =getItem(position)
+        val newlyCatalogue : NewCatalogue =getItem(position)
         holder.binding.txtNewlyBookName.setText(newlyCatalogue.newlyAuthor)
         holder.binding.txtNewlyAuthor.setText(newlyCatalogue.newlyAuthor)
         holder.binding.txtNewlyView.setText(newlyCatalogue.newlyView)
