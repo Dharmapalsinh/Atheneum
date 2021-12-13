@@ -1,32 +1,16 @@
 package com.codery.atheneum
 
-data class BookBuilder(
-    val name : String,
-    val author : String,
-    val publisher : String,
-    val length : Int,
-    val desc : String,
-    val image : String,
+import com.google.firebase.Timestamp
+import com.manavtamboli.firefly.toFirebaseTimestamp
+import com.manavtamboli.firefly.toLocalDate
+import java.time.LocalDate
 
-)
+fun main(){
+    val currentDate = LocalDate.now()
 
-/*
-* Collection name -> genres
-* Id -> Autogenerate
-*
-* Name -> Edittext
-*
-* */
+    // convert LocalDate to Timestamp
+    val timestamp: Timestamp = currentDate.toFirebaseTimestamp()
 
-/*
-
-Collection name -> books
-Book Id -> Auto Generate
-
-name -> EditText
-author -> EditText
-desc -> Multiline EditText (max length 250)
-length -> EditText (Only numbers)
-publisher -> EditText
-
-* */
+    // convert Timestamp to LocalDate
+    val date: LocalDate = timestamp.toLocalDate()
+}

@@ -24,7 +24,7 @@ object Bindings {
     }
 
     object Collections {
-        const val Genre = "genre"
-        const val Book = "book"
+        const val Genre = "genres"
+        const val Book = "books"
     }
 }

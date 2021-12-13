@@ -6,7 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.codery.atheneum.ui.main.dashboard.home.CatalogueGenre
+import com.codery.atheneum.models.Genre
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -16,7 +16,7 @@ class GenreViewerViewModel(application: Application,val genreId : String) : Andr
 
     }
 
-    val genreList : MutableLiveData<List<CatalogueGenre>> = MutableLiveData()
+    val genreList : MutableLiveData<List<Genre>> = MutableLiveData()
     val genViewerBooks = MutableLiveData<List<GenreViewer>>(emptyList())
 
     val db = Firebase.firestore
@@ -42,7 +42,7 @@ class GenreViewerViewModel(application: Application,val genreId : String) : Andr
                     val bookGenres = document.get("book_genre") as List<String>
 
                     val finalGenre = genreList.value?.filter {
-                        return@filter it.genreId in bookGenres
+                        return@filter it.id in bookGenres
                     }
                     val book1 = GenreViewer(bookName,bookAuthor,finalGenre)
                     return@map book1

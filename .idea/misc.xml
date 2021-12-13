@@ -14,12 +14,16 @@
         <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/fragment_dashboard.xml" value="0.2" />
         <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/fragment_genre_viewer.xml" value="0.28940217391304346" />
         <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/fragment_genres.xml" value="0.28940217391304346" />
-        <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/fragment_home.xml" value="0.38697916666666665" />
+        <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/fragment_issued_book_viewer.xml" value="0.28940217391304346" />
         <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/fragment_issued_books.xml" value="0.38697916666666665" />
         <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/fragment_library.xml" value="0.28940217391304346" />
         <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/fragment_log_in.xml" value="0.264" />
         <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/fragment_profile.xml" value="0.28940217391304346" />
+        <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/item_book_viewer_genre.xml" value="0.27447916666666666" />
+        <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/item_catalogue.xml" value="0.27447916666666666" />
+        <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/item_genre.xml" value="0.27447916666666666" />
+        <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/item_newly_catalogue.xml" value="0.27447916666666666" />
         <entry key="..\:/Projects/Atheneum/App/app/src/main/res/menu/dash_nav_menu.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/drawable/Bookmark_icon.xml" value="0.2703125" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
@@ -28,7 +32,6 @@
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_edit_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_issued_books.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_library.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_log_in.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />

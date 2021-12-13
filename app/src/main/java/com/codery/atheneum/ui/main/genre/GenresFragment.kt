@@ -13,10 +13,9 @@ class GenresFragment : BindingFragment<FragmentGenresBinding>(FragmentGenresBind
 
     private val viewModel by viewModels<GenreSearchViewModel>()
 
-    private val adapter = GenreSearchAdapter({
-        Toast.makeText(requireContext(), "Genre Clicked", Toast.LENGTH_SHORT).show()
-        findNavController().navigate(GenresFragmentDirections.genresToGenre(it.catGenreName,it))
-    })
+    private val adapter = GenreSearchAdapter {
+        findNavController().navigate(GenresFragmentDirections.genresToGenre(it))
+    }
 
     override fun FragmentGenresBinding.initialize() {
         // Initialization Logic

@@ -23,7 +23,7 @@
             android:id="@+id/view_issued_book"
             app:destination="@id/issuedBookViewerFragment" />
         <action
-            android:id="@+id/action_dashboardFragment_to_bookViewerFragment"
+            android:id="@+id/view_book"
             app:destination="@id/bookViewerFragment" />
         <action
             android:id="@+id/action_dashboardFragment_to_editProfileFragment"
@@ -50,11 +50,8 @@
             android:id="@+id/genre_to_book"
             app:destination="@id/bookViewerFragment" />
         <argument
-            android:name="genreName"
-            app:argType="string" />
-        <argument
             android:name="catGenre"
-            app:argType="com.codery.atheneum.ui.main.dashboard.home.CatalogueGenre" />
+            app:argType="com.codery.atheneum.models.Genre" />
     </fragment>
     <fragment
         android:id="@+id/bookViewerFragment"
@@ -62,14 +59,8 @@
         android:label="fragment_book_viewer"
         tools:layout="@layout/fragment_book_viewer" >
         <argument
-            android:name="bookName"
-            app:argType="string" />
-        <argument
-            android:name="bookAuthor"
-            app:argType="string" />
-        <argument
             android:name="book"
-            app:argType="com.codery.atheneum.ui.main.dashboard.home.NewCatalogue" />
+            app:argType="com.codery.atheneum.models.Book" />
     </fragment>
 <!--    <fragment-->
 <!--        android:id="@+id/allBooksFragment"-->

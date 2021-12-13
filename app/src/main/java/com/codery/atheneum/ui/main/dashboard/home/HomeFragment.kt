@@ -2,30 +2,51 @@ package com.codery.atheneum.ui.main.dashboard.home
 
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.codery.atheneum.R
+import coil.load
 import com.codery.atheneum.databinding.FragmentHomeBinding
+import com.codery.atheneum.databinding.ItemGenreBinding
+import com.codery.atheneum.databinding.ItemNewlyCatalogueBinding
+import com.codery.atheneum.models.Book
+import com.codery.atheneum.models.Genre
 import com.codery.atheneum.ui.main.MainViewModel
 import com.codery.atheneum.ui.main.dashboard.DashboardFragmentDirections
-import com.codery.atheneum.ui.main.genre.DataViewModel
+import com.manavtamboli.axion.binding.AxionAdapter
 import com.manavtamboli.axion.binding.BindingFragment
+import com.manavtamboli.axion.lifecycle.flows
 
 class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::class.java){
 
-    private val viewModel by viewModels<HomeViewModel>()
-
     private val mainViewModel : MainViewModel by activityViewModels()
 
-    private val adapterGenre = CatalogueGenreAdapter {
-        Toast.makeText(requireContext(), "Genre Clicked - ${it.catGenreName}", Toast.LENGTH_SHORT)
-            .show()
-//        mainViewModel.navigate(DashboardFragmentDirections.viewGenre())
+    private val genreAdapter by AxionAdapter(ItemGenreBinding::class.java, Genre.Companion.Diff){
+        onBind {
+            itemGenreName.text = it.name
+        }
+        onItemClick {
+            mainViewModel.navigate(DashboardFragmentDirections.viewGenre(it))
+        }
     }
 
-    private val adapterRecentlyAddedBook = RecentlyAddedAdapter {
-        Toast.makeText(requireContext(), "View Clicked- ${it.newlyBook}", Toast.LENGTH_SHORT).show()
-        findNavController().navigate(R.id.action_dashboardFragment_to_bookViewerFragment)
+    private val booksAdapter by AxionAdapter(ItemNewlyCatalogueBinding::class.java, Book){
+        onBind {
+            txtNewlyBookName.text = it.name
+            txtNewlyAuthor.text = it.author
+            bookImg.load(it.image)
+        }
+        onItemClick {
+            mainViewModel.navigate(DashboardFragmentDirections.viewBook(it))
+        }
+    }
+
+    init {
+        flows {
+            collectFlow(mainViewModel.topGenres){
+                genreAdapter.submitList(it)
+            }
+            collectFlow(mainViewModel.newlyAddedBooks){
+                booksAdapter.submitList(it)
+            }
+        }
     }
 
     override fun FragmentHomeBinding.initialize() {
@@ -37,24 +58,11 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::c
             ).show()
             // TODO : Navigate to Genres Fragment
         }
-        txtCatAllBooks.setOnClickListener{
-            Toast.makeText(requireContext(),"Home Fragment to all books Fragment Navigation",Toast.LENGTH_SHORT).show();
+        txtCatAllBooks.setOnClickListener {
             mainViewModel.navigate(DashboardFragmentDirections.viewAllBooks())
         }
 
-        this.recyclerGenre.adapter = adapterGenre
-        this.recyclerRecentlyAdded.adapter = adapterRecentlyAddedBook
-    }
-
-    override fun onStart() {
-        super.onStart()
-        viewModel.genres.observe(viewLifecycleOwner){
-            if(it == null) return@observe
-            adapterGenre.submitList(it)
-        }
-        viewModel.viewBooks.observe(viewLifecycleOwner){
-            if(it == null) return@observe
-            adapterRecentlyAddedBook.submitList(it)
-        }
+        this.homeGenreList.adapter = genreAdapter
+        this.recyclerRecentlyAdded.adapter = booksAdapter
     }
 }

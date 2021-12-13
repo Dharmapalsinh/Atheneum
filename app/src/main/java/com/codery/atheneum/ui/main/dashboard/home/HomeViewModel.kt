@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.codery.atheneum.models.Genre
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -17,7 +18,7 @@ class HomeViewModel(application : Application) : AndroidViewModel(application) {
         addNewlyBooksFromFireStore()
     }
 
-    val genres = MutableLiveData<List<CatalogueGenre>>(emptyList())
+    val genres = MutableLiveData<List<Genre>>(emptyList())
     val viewBooks = MutableLiveData<List<NewCatalogue>>(emptyList())
 
     private fun addTopGenresFromFireStore(){
@@ -27,7 +28,7 @@ class HomeViewModel(application : Application) : AndroidViewModel(application) {
                 val genList = it.documents.map{ document ->
                     val myGenre = document.get("genre") as String
 
-                    val catGen = CatalogueGenre(document.id,myGenre)
+                    val catGen = Genre(document.id,myGenre)
                     return@map catGen
                 }
                 genres.value = genList

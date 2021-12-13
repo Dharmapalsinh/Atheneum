@@ -10,7 +10,7 @@ class GenreViewerFragment : BindingFragment<FragmentGenreViewerBinding>(Fragment
 
     val args by navArgs<GenreViewerFragmentArgs>()
 
-    private val viewModel by viewModels<GenreViewerViewModel>{ GenreViewerViewModelFactory(requireActivity().application,args.catGenre.genreId)}
+    private val viewModel by viewModels<GenreViewerViewModel>{ GenreViewerViewModelFactory(requireActivity().application,args.catGenre.id)}
 
     override fun FragmentGenreViewerBinding.initialize() {
     // Initialization Logic

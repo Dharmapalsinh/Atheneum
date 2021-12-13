@@ -39,7 +39,7 @@ data class book(val author:String, val name:String, val desc:String, val length:
 class BookRepo(private val genreRepo: GenreRepo) {
 
     private val db = Firebase.firestore
-    val Books=MutableLiveData<List<com.codery.atheneum.data.book>>()
+    val allBooks=MutableLiveData<List<book>>()
     val finalgenres=MutableLiveData<List<Genre>>()
 
     init {
@@ -70,7 +70,7 @@ class BookRepo(private val genreRepo: GenreRepo) {
                     book(author,name,desc,length,publisher,finalGenres)
                 }
 
-                Books.value= bookList
+                allBooks.value= bookList
 //                finalgenres.value=bookList
 
             }

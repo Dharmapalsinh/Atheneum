@@ -1,12 +1,16 @@
 package com.codery.atheneum.models
 
 import android.os.Parcelable
+import androidx.recyclerview.widget.DiffUtil
 import com.codery.atheneum.app.InvalidDocument
 import com.codery.atheneum.data.Bindings
 import com.codery.atheneum.data.repos.AllGenresRepo
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentSnapshot
+import com.manavtamboli.firefly.firestore.Transformer
+import com.manavtamboli.firefly.toLocalDatetime
 import kotlinx.parcelize.Parcelize
+import java.time.LocalDateTime
 
 @Parcelize
 data class Book(
@@ -18,12 +22,24 @@ data class Book(
     val genres : List<Genre>,
     val length : Int,
     val publisher : String,
+    val addedOn : LocalDateTime,
     val availability: Availability
 ) : Parcelable {
-    
-    companion object {
+
+    companion object : DiffUtil.ItemCallback<Book>() {
+        override fun areItemsTheSame(oldItem: Book, newItem: Book): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: Book, newItem: Book): Boolean {
+            return oldItem == newItem
+        }
+    }
+
+    class BookTransformer(private val genreRepo: AllGenresRepo) : Transformer<Book> {
+
         @Suppress("Unchecked_Cast")
-        suspend fun fromDocument(snap : DocumentSnapshot, genreRepo: AllGenresRepo) : Book {
+        override fun transform(snap: DocumentSnapshot): Book {
             val id = snap.id
             val name = snap.get(Bindings.Book.name) as? String ?: throw InvalidDocument("No Book Name")
             val author = snap.get(Bindings.Book.author) as? String ?: throw InvalidDocument("No Book Author")
@@ -35,8 +51,9 @@ data class Book(
             val genres = rawGenres.map { genreId -> genreRepo.genreById(genreId) }
             val available = snap.get(Bindings.Book.available) as? Boolean ?: throw InvalidDocument("No Book Availabilsnapy Status")
             val est = snap.get(Bindings.Book.est) as? Timestamp?
+            val createdAt = snap.get(Bindings.Book.addedOn) as Timestamp
             val availability = Availability.getAvailability(available, est)
-            return Book(id, name, author, image, desc, genres, length.toInt(), publisher, availability)
+            return Book(id, name, author, image, desc, genres, length.toInt(), publisher, createdAt.toLocalDatetime(), availability)
         }
     }
 }

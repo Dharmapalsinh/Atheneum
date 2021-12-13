@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codery.atheneum.databinding.ItemGenreSearchBinding
 import com.codery.atheneum.models.Genre
 
-class GenreSearchAdapter(val onClick: (CatalogueGenre) -> Unit) : ListAdapter<CatalogueGenre,GenreSearchViewHolder>(DiffCatalogueGenre) {
+class GenreSearchAdapter(val onClick: (Genre) -> Unit) : ListAdapter<Genre,GenreSearchViewHolder>(Genre.Companion.Diff) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenreSearchViewHolder {
         val inflater : LayoutInflater = LayoutInflater.from(parent.context)
         val binding : ItemGenreSearchBinding = ItemGenreSearchBinding.inflate(inflater,parent,false)
@@ -15,8 +15,8 @@ class GenreSearchAdapter(val onClick: (CatalogueGenre) -> Unit) : ListAdapter<Ca
     }
 
     override fun onBindViewHolder(holder: GenreSearchViewHolder, position: Int) {
-        val searchItem : CatalogueGenre = getItem(position)
-        holder.binding.txtSeachItem.setText(searchItem.catGenreName)
+        val searchItem : Genre = getItem(position)
+        holder.binding.txtSeachItem.setText(searchItem.name)
         holder.binding.txtSeachItem.setOnClickListener{
             onClick(searchItem)
         }

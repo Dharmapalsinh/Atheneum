@@ -9,6 +9,7 @@ import com.codery.atheneum.databinding.FragmentHomeBinding
 import com.codery.atheneum.databinding.ItemNewlyCatalogueBinding
 
 class RecentlyAddedAdapter(val onClick : (NewCatalogue) -> Unit) : ListAdapter<NewCatalogue, CatalogueViewHolder>(DiffCatalogueNewly){
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatalogueViewHolder {
         val inflater : LayoutInflater = LayoutInflater.from(parent.context)
         val binding : ItemNewlyCatalogueBinding = ItemNewlyCatalogueBinding.inflate(inflater,parent,false)

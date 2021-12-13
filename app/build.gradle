@@ -84,7 +84,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
 
     // Coil
-    implementation 'io.coil-kt:coil:1.2.1'
+    implementation 'io.coil-kt:coil:1.4.0'
 
     // Manav's Libraries
     implementation project(path: ':axion-core')

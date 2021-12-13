@@ -6,9 +6,12 @@ import androidx.activity.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import com.codery.atheneum.R
+import com.codery.atheneum.data.repos.AllBooksRepo
+import com.codery.atheneum.data.repos.AllGenresRepo
 import com.codery.atheneum.databinding.ActivityMainBinding
 import com.codery.atheneum.ui.main.dashboard.DashboardFragmentDirections
 import com.manavtamboli.axion.binding.BindingActivity
@@ -37,4 +40,14 @@ class MainViewModel : ViewModel(){
         _navigation.value = navDirections
         _navigation.value = null
     }
+
+    private val genresRepo = AllGenresRepo(viewModelScope)
+    private val booksRepo = AllBooksRepo(viewModelScope, genresRepo)
+
+    val allGenres = genresRepo.allGenres
+    val topGenres = genresRepo.topGenres()
+
+    val newlyAddedBooks = booksRepo.newlyAddedBooks()
+
+    fun bookById(id : String) = booksRepo.bookById(id)
 }
