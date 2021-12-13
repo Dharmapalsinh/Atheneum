@@ -26,7 +26,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
     private val mainViewModel:MainViewModel by activityViewModels()
 
     override fun FragmentProfileBinding.initialize() {
-        viewModel.state.value=State.Loading
+//        viewModel.state.value=State.Loading
         viewModel.user.observe(viewLifecycleOwner) {
             it ?: return@observe
             txtPhoneNumber.text = it.phone

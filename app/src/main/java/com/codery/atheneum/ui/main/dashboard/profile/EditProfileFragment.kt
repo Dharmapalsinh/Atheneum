@@ -46,6 +46,7 @@ class EditProfileFragment : BindingFragment<FragmentEditProfileBinding>(Fragment
 
 
         btnUpdate.setOnClickListener {
+            viewmodel.state.value=SetDataState.Loading
             viewmodel.SetData(txtName2.text.toString(),txtPhone2.text.toString(),txtAddress2.text.toString())
 
 
@@ -85,9 +86,9 @@ class EditProfileViewModel(application: Application):AndroidViewModel(applicatio
 
             .addOnSuccessListener {
                 //state success
-                state.value=SetDataState.success
                 it.documents[0].reference.update(data as Map<String, Any>)
                 Toast.makeText(getApplication(),"Updated!!", Toast.LENGTH_SHORT).show()
+                state.value=SetDataState.success
 //                findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment)
 
             }
