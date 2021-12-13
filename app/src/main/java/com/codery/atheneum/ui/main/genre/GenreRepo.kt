@@ -20,7 +20,6 @@ class GenreRepo  {
             }
             .addOnFailureListener {
 
-z
             }
     }
 }

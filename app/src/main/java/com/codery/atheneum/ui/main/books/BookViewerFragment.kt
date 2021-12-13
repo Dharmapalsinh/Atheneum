@@ -14,7 +14,7 @@ class BookViewerFragment : BindingFragment<FragmentBookViewerBinding>(FragmentBo
     val viewModel : DataViewModel by viewModels()
 
     private val genresAapter = GenreSearchAdapter() {
-        viewModel
+
     }
 
     override fun FragmentBookViewerBinding.initialize() {

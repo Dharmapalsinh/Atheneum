@@ -20,7 +20,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::c
     private val adapterGenre = CatalogueGenreAdapter {
         Toast.makeText(requireContext(), "Genre Clicked - ${it.catGenreName}", Toast.LENGTH_SHORT)
             .show()
-        mainViewModel.navigate(DashboardFragmentDirections.viewGenre())
+//        mainViewModel.navigate(DashboardFragmentDirections.viewGenre())
     }
 
     private val adapterRecentlyAddedBook = RecentlyAddedAdapter {

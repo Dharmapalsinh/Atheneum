@@ -40,6 +40,7 @@ class BookRepo(private val genreRepo: GenreRepo) {
 
     private val db = Firebase.firestore
     val Books=MutableLiveData<List<com.codery.atheneum.data.book>>()
+    val finalgenres=MutableLiveData<List<Genre>>()
 
     init {
         fetch()
@@ -70,6 +71,7 @@ class BookRepo(private val genreRepo: GenreRepo) {
                 }
 
                 Books.value= bookList
+//                finalgenres.value=bookList
 
             }
             .addOnFailureListener {

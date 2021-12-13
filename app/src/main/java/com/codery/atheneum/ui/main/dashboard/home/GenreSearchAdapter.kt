@@ -18,7 +18,7 @@ class GenreSearchAdapter(val onClick: (CatalogueGenre) -> Unit) : ListAdapter<Ca
         val searchItem : CatalogueGenre = getItem(position)
         holder.binding.txtSeachItem.setText(searchItem.catGenreName)
         holder.binding.txtSeachItem.setOnClickListener{
-
+            onClick(searchItem)
         }
     }
 }

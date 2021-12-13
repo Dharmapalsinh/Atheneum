@@ -36,8 +36,8 @@ class BookViewerViewModel(application : Application) : AndroidViewModel(applicat
 
                 }
 
-                val book1 = Book(document.id,book_name,book_author,"img",book_desc,book_genre ,book_length.toInt(),book_publisher,true)
-                return@map book1
+//                val book1 = Book(document.id,book_name,book_author,"img",book_desc,book_genre ,book_length.toInt(),book_publisher,true)
+//                return@map book1
                 }
             }
             .addOnFailureListener {
