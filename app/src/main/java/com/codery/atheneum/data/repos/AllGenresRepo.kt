@@ -5,7 +5,6 @@ import com.codery.atheneum.models.Genre
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.manavtamboli.firefly.firestore.realtime.realtimeDocuments
-import com.manavtamboli.firefly.firestore.single.fetch
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -20,5 +19,6 @@ class AllGenresRepo(private val externalScope : CoroutineScope) {
 
     fun genreById(id : String) = allGenres.value.find { it.id == id } ?: throw IllegalArgumentException("Illegal id")
 
-    fun topGenres() = allGenres.take(5).stateIn(externalScope, SharingStarted.Eagerly, emptyList())
+    fun topGenres() = allGenres.take(10)
+        .stateIn(externalScope, SharingStarted.Eagerly, emptyList())
 }

@@ -51,12 +51,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::c
 
     override fun FragmentHomeBinding.initialize() {
         txtCatAllGenre.setOnClickListener {
-            Toast.makeText(
-                requireContext(),
-                "Home Fragment to GenreSearch Fragment Navigation",
-                Toast.LENGTH_SHORT
-            ).show()
-            // TODO : Navigate to Genres Fragment
+            mainViewModel.navigate(DashboardFragmentDirections.viewAllGenres())
         }
         txtCatAllBooks.setOnClickListener {
             mainViewModel.navigate(DashboardFragmentDirections.viewAllBooks())
