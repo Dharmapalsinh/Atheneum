@@ -41,7 +41,7 @@ class MainViewModel : ViewModel(){
         _navigation.value = null
     }
 
-    private val genresRepo = AllGenresRepo(viewModelScope)
+    val genresRepo = AllGenresRepo(viewModelScope)
     private val booksRepo = AllBooksRepo(viewModelScope, genresRepo)
 
     val allGenres = genresRepo.allGenres

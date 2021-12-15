@@ -7,7 +7,7 @@
     tools:context=".ui.main.genre.GenresFragment">
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/genres_search"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:drawableEnd="@drawable/ic_baseline_search_24"
@@ -27,7 +27,7 @@
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/genres_search"
         tools:listitem="@layout/item_genre_search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
