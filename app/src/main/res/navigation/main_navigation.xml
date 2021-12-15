@@ -50,7 +50,7 @@
             android:id="@+id/genre_to_book"
             app:destination="@id/bookViewerFragment" />
         <argument
-            android:name="catGenre"
+            android:name="genre"
             app:argType="com.codery.atheneum.models.Genre" />
     </fragment>
     <fragment

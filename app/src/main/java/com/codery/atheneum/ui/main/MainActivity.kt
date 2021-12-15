@@ -47,6 +47,7 @@ class MainViewModel : ViewModel(){
     val allGenres = genresRepo.allGenres
     val topGenres = genresRepo.topGenres()
 
+    val allBooks = booksRepo.allBooks
     val newlyAddedBooks = booksRepo.newlyAddedBooks()
 
     fun bookById(id : String) = booksRepo.bookById(id)

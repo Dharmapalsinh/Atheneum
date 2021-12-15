@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_gen_name"
+        android:id="@+id/genre_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/genre_search"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="#ffffff"
@@ -41,14 +41,15 @@
         app:layout_constraintTop_toBottomOf="@+id/view4" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_genre_viewer"
+        android:id="@+id/genre_book_list"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/genre_search"
         tools:listitem="@layout/item_genre_viewer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

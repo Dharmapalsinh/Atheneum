@@ -19,7 +19,7 @@ import kotlinx.coroutines.flow.combine
 class GenresFragment : BindingFragment<FragmentGenresBinding>(FragmentGenresBinding::class.java){
 
     private val mainViewModel : MainViewModel by activityViewModels()
-    private val viewModel : GenreViewModel by viewModels { AxionFactory<GenreViewModel, AllGenresRepo>(mainViewModel.genresRepo) }
+    private val viewModel : GenresViewModel by viewModels { AxionFactory<GenresViewModel, AllGenresRepo>(mainViewModel.genresRepo) }
 
     private val adapter by AxionAdapter(ItemGenreSearchBinding::class.java, Genre.Companion.Diff){
         onBind {
@@ -46,7 +46,7 @@ class GenresFragment : BindingFragment<FragmentGenresBinding>(FragmentGenresBind
     }
 }
 
-class GenreViewModel(genresRepo: AllGenresRepo) : ViewModel(){
+class GenresViewModel(genresRepo: AllGenresRepo) : ViewModel(){
 
     private val _query = MutableStateFlow("")
 
