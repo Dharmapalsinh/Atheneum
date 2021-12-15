@@ -42,7 +42,7 @@ class MainViewModel : ViewModel(){
     }
 
     val genresRepo = AllGenresRepo(viewModelScope)
-    private val booksRepo = AllBooksRepo(viewModelScope, genresRepo)
+    val booksRepo = AllBooksRepo(viewModelScope, genresRepo)
 
     val allGenres = genresRepo.allGenres
     val topGenres = genresRepo.topGenres()

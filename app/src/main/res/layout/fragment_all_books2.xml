@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/serachbox"
+        android:id="@+id/books_search"
         android:layout_width="match_parent"
         android:layout_height="64dp"
 
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/serachbox"
+        app:layout_constraintTop_toBottomOf="@+id/books_search"
         tools:listitem="@layout/item_allbooks" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
