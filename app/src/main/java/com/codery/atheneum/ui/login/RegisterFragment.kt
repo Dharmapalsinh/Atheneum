@@ -1,12 +1,7 @@
 package com.codery.atheneum.ui.login
 
 import android.content.Intent
-import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModel
@@ -40,11 +35,6 @@ class RegisterFragment : BindingFragment<FragmentRegisterBinding>(FragmentRegist
             .build()
     }
 
-
-    override fun onStart() {
-        super.onStart()
-    }
-
     init {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
@@ -54,7 +44,7 @@ class RegisterFragment : BindingFragment<FragmentRegisterBinding>(FragmentRegist
                         is RegistrationState.Failed ->{
                             it.message
                         }
-                        RegistrationState.added ->{
+                        RegistrationState.Added ->{
                             // navigate to main activity
                             val  intent= Intent(requireContext(), MainActivity::class.java)
                             startActivity(intent)
@@ -90,7 +80,7 @@ class RegisterFragment : BindingFragment<FragmentRegisterBinding>(FragmentRegist
     sealed class RegistrationState {
         object Idle : RegistrationState()
         object Loading : RegistrationState()
-        object added : RegistrationState()
+        object Added : RegistrationState()
 //        object Unregistered : LoginState()
         data class Failed(val message : String) : RegistrationState()
     }
@@ -99,42 +89,32 @@ class RegisterFragment : BindingFragment<FragmentRegisterBinding>(FragmentRegist
     class RegisterViewModel:ViewModel(){
 
         val state : MutableStateFlow<RegistrationState> = MutableStateFlow(RegistrationState.Idle)
-        //        val signeduser:MutableStateFlow<String> = MutableStateFlow("String")
         fun adduser(Name:String, Address:String, Phone:String){
 
             val signedInUser= Firebase.auth.currentUser
             if (signedInUser != null){
                 val userId=signedInUser.uid
                 val email=signedInUser.email!!
-                val name=Name
-                val address=Address
-                val phone=Phone
 
                 val db = Firebase.firestore
 
                 // Create a new user with a first and last name
                 val user = hashMapOf(
-                    "Name" to name,
-                    "address" to address,
-                    "phone" to phone,
-                    "Id" to userId,
-                    "Email" to email
+                        "Name" to Name,
+                        "address" to Address,
+                        "phone" to Phone,
+                        "Id" to userId,
+                        "Email" to email
                 )
 
-// Add a new document with a generated ID
-                db.collection("DGV")
-                    .add(user)
-                    .addOnSuccessListener { documentReference ->
-                        Log.d("tagged", "DocumentSnapshot added with ID: ${documentReference.id}")
-                        state.value=RegistrationState.added
-
+                db.collection("DGV").document(Firebase.auth.currentUser!!.uid)
+                    .set(user)
+                    .addOnSuccessListener {
+                        state.value=RegistrationState.Added
                     }
                     .addOnFailureListener { e ->
-                        Log.w("tagged", "Error adding document", e)
                         state.value=RegistrationState.Failed("Error adding document - $e")
                     }
-
-
             }
         }
 

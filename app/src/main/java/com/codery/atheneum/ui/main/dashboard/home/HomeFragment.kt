@@ -1,6 +1,5 @@
 package com.codery.atheneum.ui.main.dashboard.home
 
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import coil.load
 import com.codery.atheneum.databinding.FragmentHomeBinding

@@ -1,16 +1,12 @@
 package com.codery.atheneum.ui.main.books
 
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.codery.atheneum.databinding.FragmentBookViewerBinding
 import com.codery.atheneum.databinding.ItemGenreBinding
 import com.codery.atheneum.models.Genre
 import com.codery.atheneum.ui.main.MainViewModel
-import com.codery.atheneum.ui.main.dashboard.home.GenreSearchAdapter
-import com.codery.atheneum.ui.main.genre.DataViewModel
 import com.manavtamboli.axion.binding.AxionAdapter
 import com.manavtamboli.axion.binding.BindingFragment
 import com.manavtamboli.axion.lifecycle.flows

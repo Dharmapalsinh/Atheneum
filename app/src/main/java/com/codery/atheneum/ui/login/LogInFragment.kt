@@ -126,11 +126,10 @@ class LoginViewModel : ViewModel(){
     fun fetchUser(){
         state.value = LoginState.Loading
         Firebase.firestore.collection("DGV")
-            .whereEqualTo("Email", auth.currentUser?.email)
+             .document(Firebase.auth.currentUser!!.uid)
             .get()
             .addOnSuccessListener {
-                state.value = if (it.documents.isNotEmpty()) LoginState.Registered else LoginState.Unregistered
-
+                state.value = if (it.exists()) LoginState.Registered else LoginState.Unregistered
             }
             .addOnFailureListener {
                 state.value = LoginState.Failed("asdbfiausdbf")
