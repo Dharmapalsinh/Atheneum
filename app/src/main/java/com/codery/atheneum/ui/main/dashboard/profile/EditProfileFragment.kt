@@ -102,14 +102,13 @@ class EditProfileViewModel(application: Application):AndroidViewModel(applicatio
     private fun fetchData() {
 
         val email= Firebase.auth.currentUser?.email.toString()
-        db.collection("DGV")
-            .whereEqualTo("Email",email)
+        db.collection("users").document(Firebase.auth.currentUser!!.uid)
             .get()
 
             .addOnSuccessListener {
-                val name=it.documents.get(0).getString("Name")
-                val address=(it.documents.get(0).getString("address"))
-                val phone=(it.documents.get(0).getString("phone"))
+                val name=it.getString("name")
+                val address=(it.getString("address"))
+                val phone=(it.getString("phone"))
                 user.value= ProfileFragment.ProfileUser(name,phone,address)
 
             }
