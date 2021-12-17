@@ -26,20 +26,28 @@
         <entry key="..\:/Projects/Atheneum/App/app/src/main/res/layout/item_newly_catalogue.xml" value="0.27447916666666666" />
         <entry key="..\:/Projects/Atheneum/App/app/src/main/res/menu/dash_nav_menu.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/drawable/Bookmark_icon.xml" value="0.2703125" />
+        <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/activity_login.xml" value="0.2151268115942029" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_all_books.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_all_books2.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_book_viewer.xml" value="0.2151268115942029" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_edit_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_genre_search.xml" value="0.2151268115942029" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_genre_viewer.xml" value="0.2151268115942029" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_genres.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_issued_book_viewer.xml" value="0.2151268115942029" />
+        <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_issued_books.xml" value="0.2151268115942029" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_library.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_log_in.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/fragment_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/item_allbooks.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/item_book_viewer_genre.xml" value="0.2151268115942029" />
+        <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/item_genre.xml" value="0.2151268115942029" />
+        <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/item_genre_search.xml" value="0.2151268115942029" />
+        <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/item_genre_viewer.xml" value="0.2151268115942029" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/item_issue_book.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/layout/item_newly_catalogue.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dharmapal/AndroidStudioProjects/atheneum/app/src/main/res/menu/dash_nav_menu.xml" value="0.25416666666666665" />

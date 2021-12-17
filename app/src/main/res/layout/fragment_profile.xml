@@ -7,11 +7,7 @@
     android:background="@color/red"
     tools:context=".ui.main.dashboard.profile.ProfileFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Profile Fragment" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -35,6 +31,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="64dp"
             android:letterSpacing="0.04"
+            android:fontFamily="@font/andada"
             android:text="Profile"
             android:textColor="#E9F0F5"
             android:textSize="22sp"
@@ -49,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="64dp"
+            android:fontFamily="@font/lato"
             android:letterSpacing="0.04"
             android:text="Name"
             android:textColor="#667188"
@@ -90,6 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="40dp"
+            android:fontFamily="@font/lato"
             android:letterSpacing="0.04"
             android:text="Address"
             android:textColor="#667188"
@@ -146,6 +145,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="40dp"
             android:letterSpacing="0.04"
+            android:fontFamily="@font/lato"
             android:text="Phone"
             android:textColor="#667188"
             android:textSize="16sp"

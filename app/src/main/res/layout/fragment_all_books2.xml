@@ -24,6 +24,7 @@
         android:layout_marginTop="64dp"
         android:letterSpacing="0.04"
         android:text="All Books"
+        android:fontFamily="@font/andada"
         android:textColor="#E9F0F5"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +34,7 @@
         android:id="@+id/books_search"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-
+        android:fontFamily="@font/andada"
         android:layout_marginTop="0dp"
         android:background="@color/white"
         android:drawableEnd="@drawable/ic_baseline_search_24"
