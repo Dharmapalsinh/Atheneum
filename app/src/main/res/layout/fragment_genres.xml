@@ -30,4 +30,30 @@
         app:layout_constraintTop_toBottomOf="@+id/genres_search"
         tools:listitem="@layout/item_genre_search" />
 
+    <ImageView
+        android:id="@+id/genres_empty_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/undraw_empty_street_sfxm"
+        app:layout_constraintBottom_toTopOf="@+id/genres_empty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genres_search"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/genres_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Genres Found"
+        android:layout_marginTop="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genres_empty_image" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

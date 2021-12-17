@@ -1,14 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.dashboard.issued.IssuedBookViewerFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Issued Book Viewer Fragment" />
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="214dp"
+        android:layout_height="280dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/bookname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:letterSpacing="0.04"
+        android:maxLines="1"
+        android:text="Think &amp; Grow Rich"
+        android:textColor="#2E3A59"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image1" />
+
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="155dp"
+        android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:letterSpacing="0.04"
+        android:maxLines="1"
+        android:text="Napolean Hill"
+        android:textColor="#667188"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookname" />
+
+    <TextView
+        android:id="@+id/issuedon1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:letterSpacing="0.04"
+        android:maxLines="1"
+        android:text="Issued On : "
+        android:textColor="#667188"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/author" />
+
+    <TextView
+        android:id="@+id/issuedon2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="215dp"
+        android:ellipsize="end"
+        android:letterSpacing="0.04"
+        android:maxLines="1"
+        android:text="Date1"
+        android:textColor="#2E3A59"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/issuedon1"
+        app:layout_constraintTop_toBottomOf="@+id/author" />
+
+
+    <TextView
+        android:id="@+id/dueon1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:letterSpacing="0.04"
+        android:maxLines="1"
+        android:text="Due On : "
+        android:textColor="#667188"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/issuedon1" />
+
+    <TextView
+        android:id="@+id/dueon2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="215dp"
+        android:ellipsize="end"
+        android:letterSpacing="0.04"
+        android:maxLines="1"
+        android:text="Date2"
+        android:textColor="#2E3A59"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dueon1"
+        app:layout_constraintTop_toBottomOf="@+id/issuedon2" />
+
+
+    <TextView
+        android:id="@+id/submiton1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:letterSpacing="0.04"
+        android:maxLines="1"
+        android:text="Submitted On : "
+        android:textColor="#667188"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dueon1" />
+
+    <TextView
+        android:id="@+id/submiton2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:letterSpacing="0.04"
+        android:maxLines="1"
+        android:text="Date3"
+        android:textColor="#2E3A59"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/issuedon1"
+        app:layout_constraintTop_toBottomOf="@+id/dueon2" />
+
+    <TextView
+        android:id="@+id/penalty1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:letterSpacing="0.04"
+        android:maxLines="1"
+        android:text="Penalty : "
+        android:textColor="#667188"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/submiton2"
+        app:layout_constraintTop_toBottomOf="@+id/dueon1" />
+
+    <TextView
+        android:id="@+id/penalty2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="24dp"
+        android:ellipsize="end"
+        android:letterSpacing="0.04"
+        android:maxLines="1"
+        android:text="500RS"
+        android:textColor="#FF0000"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/penalty1"
+        app:layout_constraintTop_toBottomOf="@+id/dueon1" />
+
+    <TextView
+        android:id="@+id/dueType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:background="#FF565E"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:letterSpacing="0.08"
+        android:paddingHorizontal="25dp"
+        android:paddingVertical="12dp"
+        android:text="OVERDUE"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submiton1" />
+
+    <TextView
+        android:id="@+id/viewbook"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="279dp"
+        android:layout_marginTop="68dp"
+        android:text="View Book"
+        android:textColor="#1B7695"
+        android:textSize="14sp"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dueType" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

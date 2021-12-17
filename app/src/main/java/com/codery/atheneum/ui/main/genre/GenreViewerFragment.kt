@@ -1,5 +1,6 @@
 package com.codery.atheneum.ui.main.genre
 
+import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -40,6 +41,8 @@ class GenreViewerFragment : BindingFragment<FragmentGenreViewerBinding>(Fragment
         flows {
             collectFlow(viewModel.filteredBooks){
                 adapter.submitList(it)
+                binding.genreViewerEmptyImage.isVisible=it.isEmpty()
+                binding.genreViewerEmpty.isVisible=it.isEmpty()
             }
         }
     }

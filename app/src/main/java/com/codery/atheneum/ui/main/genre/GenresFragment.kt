@@ -1,5 +1,6 @@
 package com.codery.atheneum.ui.main.genre
 
+import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -34,6 +35,8 @@ class GenresFragment : BindingFragment<FragmentGenresBinding>(FragmentGenresBind
         flows {
             collectFlow(viewModel.filteredGenres){
                 adapter.submitList(it)
+                binding.genresEmpty.isVisible = it.isEmpty()
+                binding.genresEmptyImage.isVisible=it.isEmpty()
             }
         }
     }
@@ -50,13 +53,13 @@ class GenresViewModel(genresRepo: AllGenresRepo) : ViewModel(){
 
     private val _query = MutableStateFlow("")
 
-    val filteredGenres = _query.combine(genresRepo.allGenres){ filter, genres ->
+    val filteredGenres = _query.combine(genresRepo.allGenres){ query, genres ->
         genres
             .filter {
-                it.name.contains(filter, true)
+                it.name.contains(query, true)
             }
             .sortedBy {
-                it.name.indexOf(filter, ignoreCase = true)
+                it.name.indexOf(query, ignoreCase = true)
             }
     }
 

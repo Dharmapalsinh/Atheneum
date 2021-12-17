@@ -8,7 +8,7 @@ import com.codery.atheneum.data.repos.AllGenresRepo
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentSnapshot
 import com.manavtamboli.firefly.firestore.Transformer
-import com.manavtamboli.firefly.toLocalDatetime
+import com.manavtamboli.firefly.toLocalDate
 import kotlinx.parcelize.Parcelize
 import java.time.LocalDateTime
 
@@ -53,7 +53,7 @@ data class Book(
             val est = snap.get(Bindings.Book.est) as? Timestamp?
             val createdAt = snap.get(Bindings.Book.addedOn) as Timestamp
             val availability = Availability.getAvailability(available, est)
-            return Book(id, name, author, image, desc, genres, length.toInt(), publisher, createdAt.toLocalDatetime(), availability)
+            return Book(id, name, author, image, desc, genres, length.toInt(), publisher, createdAt.toLocalDate().atStartOfDay(), availability)
         }
     }
 }
