@@ -13,37 +13,30 @@ import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.manavtamboli.axion.binding.BindingFragment
-import com.manavtamboli.axion.extensions.log
+import com.manavtamboli.axion.ui.toast
 
 class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileBinding::class.java) {
 
     private val viewModel : ProfileViewModel by viewModels()
 
-    init {
-
-    }
-
     private val mainViewModel:MainViewModel by activityViewModels()
 
     override fun FragmentProfileBinding.initialize() {
-//        viewModel.state.value=State.Loading
         viewModel.user.observe(viewLifecycleOwner) {
             it ?: return@observe
             txtPhoneNumber.text = it.phone
             txtProfileName.text = it.name
             txtAddress.text = it.address
-
         }
         viewModel.state.observe(viewLifecycleOwner){
             it ?:return@observe
             loginProgress.visibility=if (it is State.Loading) View.VISIBLE else View.GONE
             when(it){
-                is State.Failed->{
-                    it.message
+                is State.Failed-> {
+                    toast(it.message)
                 }
-
+                else -> {}
             }
-
         }
 
         imgEditAdd.setOnClickListener {
@@ -71,27 +64,24 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
             listenForRealtimeUpdates()
         }
 
-        var reg : ListenerRegistration? = null
+        private var reg : ListenerRegistration? = null
 
         private fun listenForRealtimeUpdates(){
-//            state.value=State.Loading
             val db = Firebase.firestore
-            val email = Firebase.auth.currentUser?.email.toString()
-            val query = db.collection("DGV").whereEqualTo("Email", email)
+            val query = db.collection("users").document(Firebase.auth.currentUser!!.uid)
 
             reg = query.addSnapshotListener { snap, exception ->
                     when {
                         snap != null -> {
-                            val add = snap.documents[0].getString("address")
-                            val name = snap.documents[0].getString("Name")
-                            val phone = snap.documents[0].getString("phone")
-                            user.value = ProfileUser(name,phone,add)
+                            val add = snap.getString("address")
+                            val name = snap.getString("name")
+                            val phone = snap.getString("phone")
+                            user.value = ProfileUser(name, phone, add)
                             state.value=State.Successed
                         }
                         exception != null -> {
-                            state.value=State.Failed("exception")
+                            state.value = State.Failed("exception")
                             user.value = null
-                            log("TAGGED", exception)
                         }
                     }
                 }

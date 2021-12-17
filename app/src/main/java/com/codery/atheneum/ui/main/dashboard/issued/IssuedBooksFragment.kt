@@ -16,10 +16,8 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.manavtamboli.axion.binding.AxionAdapter
 import com.manavtamboli.axion.binding.BindingFragment
-import com.manavtamboli.axion.extensions.DateTimeFormatters
 import com.manavtamboli.axion.lifecycle.AxionFactory
 import com.manavtamboli.axion.lifecycle.flows
-import com.manavtamboli.axion.ui.toast
 import com.manavtamboli.firefly.firestore.realtime.realtimeDocuments
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
@@ -61,7 +59,8 @@ class IssuedBooksViewModel(booksRepo: AllBooksRepo) : ViewModel(){
     private val db = Firebase.firestore
     private val uid = Firebase.auth.currentUser?.uid ?: throw IllegalArgumentException("No user found.")
 
-    private val query = db.collection("DGV").document(uid).collection("issued")
+    private val query = db.collection("issued")
+        .whereEqualTo("userId", uid)
 
     val issuedBooks = query.realtimeDocuments(IssuedBook.IssuedBookTransformer(booksRepo))
             .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())

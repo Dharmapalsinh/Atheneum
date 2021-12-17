@@ -41,11 +41,10 @@ class RegisterFragment : BindingFragment<FragmentRegisterBinding>(FragmentRegist
                 viewModel.state.collect {
                     binding.registerProgress.visibility=if (it is RegistrationState.Loading) View.VISIBLE else View.GONE
                     when(it){
-                        is RegistrationState.Failed ->{
+                        is RegistrationState.Failed -> {
                             it.message
                         }
                         RegistrationState.Added ->{
-                            // navigate to main activity
                             val  intent= Intent(requireContext(), MainActivity::class.java)
                             startActivity(intent)
                             requireActivity().finish()
@@ -67,7 +66,7 @@ class RegisterFragment : BindingFragment<FragmentRegisterBinding>(FragmentRegist
 
         btnRegister.setOnClickListener {
             viewModel.adduser(txtName.text.toString(),txtAddress.text.toString(),txtPhone.text.toString())
-            viewModel.state.value=RegistrationState.Loading
+            viewModel.state.value = RegistrationState.Loading
         }
 
         btnSignOut.setOnClickListener {
@@ -81,7 +80,6 @@ class RegisterFragment : BindingFragment<FragmentRegisterBinding>(FragmentRegist
         object Idle : RegistrationState()
         object Loading : RegistrationState()
         object Added : RegistrationState()
-//        object Unregistered : LoginState()
         data class Failed(val message : String) : RegistrationState()
     }
 
@@ -89,38 +87,29 @@ class RegisterFragment : BindingFragment<FragmentRegisterBinding>(FragmentRegist
     class RegisterViewModel:ViewModel(){
 
         val state : MutableStateFlow<RegistrationState> = MutableStateFlow(RegistrationState.Idle)
-        fun adduser(Name:String, Address:String, Phone:String){
 
+        fun adduser(Name:String, Address:String, Phone:String){
             val signedInUser= Firebase.auth.currentUser
             if (signedInUser != null){
-                val userId=signedInUser.uid
-                val email=signedInUser.email!!
-
-                val db = Firebase.firestore
+                val email = signedInUser.email
 
                 // Create a new user with a first and last name
-                val user = hashMapOf(
-                        "Name" to Name,
+                val user = mapOf(
+                        "name" to Name,
                         "address" to Address,
                         "phone" to Phone,
-                        "Id" to userId,
-                        "Email" to email
+                        "email" to email
                 )
 
-                db.collection("DGV").document(Firebase.auth.currentUser!!.uid)
+                Firebase.firestore.collection("users").document(signedInUser.uid)
                     .set(user)
-                    .addOnSuccessListener {
-                        state.value=RegistrationState.Added
-                    }
-                    .addOnFailureListener { e ->
-                        state.value=RegistrationState.Failed("Error adding document - $e")
+                    .addOnCompleteListener {
+                        state.value = if (it.isSuccessful) RegistrationState.Added else RegistrationState.Failed("Cannot register.")
                     }
             }
         }
 
     }
-
-
-    }
+}
 
 

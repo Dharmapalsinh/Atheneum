@@ -125,8 +125,8 @@ class LoginViewModel : ViewModel(){
 
     fun fetchUser(){
         state.value = LoginState.Loading
-        Firebase.firestore.collection("DGV")
-             .document(Firebase.auth.currentUser!!.uid)
+        Firebase.firestore.collection("users")
+            .document(Firebase.auth.currentUser!!.uid)
             .get()
             .addOnSuccessListener {
                 state.value = if (it.exists()) LoginState.Registered else LoginState.Unregistered
