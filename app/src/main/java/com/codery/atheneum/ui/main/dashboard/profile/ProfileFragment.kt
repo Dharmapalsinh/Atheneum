@@ -6,8 +6,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.navigation.fragment.findNavController
 import coil.load
+import coil.transform.CircleCropTransformation
 import com.codery.atheneum.R
 import com.codery.atheneum.databinding.FragmentProfileBinding
 import com.codery.atheneum.ui.login.LoginActivity
@@ -40,14 +40,15 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
     private fun signOut(){
         auth.signOut()
         googleSignInClient.signOut()
-//        findNavController().navigate(R.id.action_registerFragment_to_logInFragment)
     }
     private val viewModel : ProfileViewModel by viewModels()
 
     private val mainViewModel:MainViewModel by activityViewModels()
 
     override fun FragmentProfileBinding.initialize() {
-        profileImage.load(Firebase.auth.currentUser?.photoUrl)
+        profileImage.load(Firebase.auth.currentUser?.photoUrl){
+            transformations(CircleCropTransformation())
+        }
         viewModel.user.observe(viewLifecycleOwner) {
             it ?: return@observe
             txtPhoneNumber.text = it.phone
