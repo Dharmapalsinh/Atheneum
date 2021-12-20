@@ -16,7 +16,7 @@ import com.manavtamboli.axion.extensions.log
 class LibraryFragment : BindingFragment<FragmentLibraryBinding>(FragmentLibraryBinding::class.java){
 
     private val viewModel : LibraryViewModel by viewModels()
-
+    //TODO: Crowdedness status
     override fun FragmentLibraryBinding.initialize() {
         // Initialization Logic
         viewModel.Details.observe(viewLifecycleOwner) {

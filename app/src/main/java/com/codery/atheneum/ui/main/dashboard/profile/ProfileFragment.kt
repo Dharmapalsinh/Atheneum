@@ -17,6 +17,8 @@ import com.manavtamboli.axion.ui.toast
 
 class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileBinding::class.java) {
 
+    //TODO:Add LogOut button
+    //TODO:Add Profile Photo of user
     private val viewModel : ProfileViewModel by viewModels()
 
     private val mainViewModel:MainViewModel by activityViewModels()

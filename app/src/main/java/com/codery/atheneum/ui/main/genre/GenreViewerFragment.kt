@@ -24,8 +24,8 @@ import kotlinx.coroutines.flow.map
 
 class GenreViewerFragment : BindingFragment<FragmentGenreViewerBinding>(FragmentGenreViewerBinding::class.java){
 
+    //TODO: onclick of books open bookVIewer
     private val args by navArgs<GenreViewerFragmentArgs>()
-
     private val mainViewModel : MainViewModel by activityViewModels()
     private val viewModel : GenreViewModel by viewModels { AxionFactory<GenreViewModel, Genre, AllBooksRepo>(args.genre, mainViewModel.booksRepo) }
 

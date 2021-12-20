@@ -30,23 +30,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:fontFamily="@font/lato"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="24dp"
-        android:drawableEnd="@drawable/ic_baseline_arrow_forward_blue"
-        android:letterSpacing="0.04"
-        android:text="View Plans"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

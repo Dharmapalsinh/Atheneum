@@ -15,6 +15,7 @@ import com.manavtamboli.axion.lifecycle.flows
 
 class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::class.java){
 
+    //TODO:Search books
     private val mainViewModel : MainViewModel by activityViewModels()
 
     private val genreAdapter by AxionAdapter(ItemGenreBinding::class.java, Genre.Companion.Diff){

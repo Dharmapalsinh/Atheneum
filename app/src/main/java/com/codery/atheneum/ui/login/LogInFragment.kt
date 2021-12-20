@@ -25,7 +25,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-// TODO @Dharmapal - Loading State
 class LogInFragment : BindingFragment<FragmentLogInBinding>(FragmentLogInBinding::class.java) {
 
     private val auth: FirebaseAuth = Firebase.auth

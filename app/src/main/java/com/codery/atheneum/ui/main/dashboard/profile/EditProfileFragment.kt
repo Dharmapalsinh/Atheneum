@@ -79,14 +79,13 @@ class EditProfileViewModel(application: Application):AndroidViewModel(applicatio
         )
 
         val email= Firebase.auth.currentUser?.email.toString()
-        db.collection("DGV")
-            .whereEqualTo("Email",email)
+        db.collection("users").document(Firebase.auth.currentUser!!.uid)
             .get()
 
 
             .addOnSuccessListener {
                 //state success
-                it.documents[0].reference.update(data as Map<String, Any>)
+                it.reference.update(data as Map<String, Any>)
                 Toast.makeText(getApplication(),"Updated!!", Toast.LENGTH_SHORT).show()
                 state.value=SetDataState.success
 //                findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment)
