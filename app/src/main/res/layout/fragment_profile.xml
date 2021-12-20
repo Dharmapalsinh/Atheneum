@@ -113,37 +113,48 @@
             android:id="@+id/btn_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="24dp"
             android:layout_marginTop="64dp"
+            android:layout_marginRight="24dp"
             android:text="Log Out"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <FrameLayout
-            android:id="@+id/login_progress"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#66000000"
-            android:elevation="4dp">
+                <FrameLayout
+                    android:id="@+id/login_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#66000000"
+                    android:elevation="4dp">
 
-            <com.google.android.material.progressindicator.CircularProgressIndicator
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:indeterminate="true" />
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:indeterminate="true" />
 
-        </FrameLayout>
+                </FrameLayout>
 
 
-        <ImageView
-            android:id="@+id/img_edit_add"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="24dp"
-            android:scaleType="center"
-            android:src="@drawable/ic_baseline_edit_24"
-            app:layout_constraintBottom_toBottomOf="@+id/txt_address"
-            app:layout_constraintEnd_toEndOf="parent" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/img_edit_add"-->
+        <!--            android:layout_width="48dp"-->
+        <!--            android:layout_height="48dp"-->
+        <!--            android:layout_marginEnd="24dp"-->
+        <!--            android:scaleType="center"-->
+        <!--            android:src="@drawable/ic_baseline_edit_24"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/txt_address"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent" />-->
+
+        <Button
+            android:id="@+id/btn_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_phone_number" />
 
         <TextView
             android:id="@+id/textView6"
@@ -172,19 +183,18 @@
             android:textColor="#2E3A59"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/img_edit_phone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-        <ImageView
-            android:id="@+id/img_edit_phone"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="24dp"
-            android:scaleType="center"
-            android:src="@drawable/ic_baseline_edit_24"
-            app:layout_constraintBottom_toBottomOf="@+id/txt_phone_number"
-            app:layout_constraintEnd_toEndOf="parent" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/img_edit_phone"-->
+<!--                    android:layout_width="48dp"-->
+<!--                    android:layout_height="48dp"-->
+<!--                    android:layout_marginEnd="24dp"-->
+<!--                    android:scaleType="center"-->
+<!--                    android:src="@drawable/ic_baseline_edit_24"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/txt_phone_number"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

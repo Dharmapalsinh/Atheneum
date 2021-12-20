@@ -27,6 +27,7 @@ import com.manavtamboli.axion.ui.toast
 
 class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileBinding::class.java) {
 
+    //TODO:Round Profile image
     private val auth: FirebaseAuth = Firebase.auth
     private val googleSignInClient: GoogleSignInClient by lazy { GoogleSignIn.getClient(requireContext(), gso) }
     private val gso by lazy {
@@ -64,7 +65,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
             }
         }
 
-        imgEditAdd.setOnClickListener {
+        btnEdit.setOnClickListener {
             mainViewModel.navigate(DashboardFragmentDirections.actionDashboardFragmentToEditProfileFragment())
         }
 

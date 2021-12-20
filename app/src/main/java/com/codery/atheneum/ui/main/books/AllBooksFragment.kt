@@ -27,6 +27,7 @@ class AllBooksFragment : BindingFragment<FragmentAllBooks2Binding>(FragmentAllBo
             txtBookname.text = it.name
             txtAuthor.text = it.author
             itemBookImage.load(it.image)
+            //TODO: Display Actual Genre name
         }
         onItemClick {
             mainViewModel.navigate(AllBooksFragmentDirections.actionAllBooksFragment2ToBookViewerFragment(it))

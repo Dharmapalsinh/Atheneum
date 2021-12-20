@@ -13,6 +13,7 @@ import com.manavtamboli.axion.lifecycle.flows
 
 class BookViewerFragment : BindingFragment<FragmentBookViewerBinding>(FragmentBookViewerBinding::class.java){
 
+    //TODO: Set Original image of books
     private val args by navArgs<BookViewerFragmentArgs>()
     private val viewModel : MainViewModel by activityViewModels()
 
