@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/dark80"
     tools:context=".ui.login.RegisterFragment">
 
     <Button
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="register"
+        android:backgroundTint="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +27,7 @@
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:text="Enter Your Details"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="20dp"
+        android:textColor="@color/white"
         android:text="Name:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -56,17 +60,6 @@
 
     </FrameLayout>
 
-    <Button
-        android:id="@+id/btn_signOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
-        android:text="Sign Out"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register" />
-
 
     <EditText
         android:id="@+id/txt_name"
@@ -75,6 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="10dp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,6 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="20dp"
+        android:textColor="@color/white"
         android:text="Address:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_name" />
@@ -97,6 +92,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
+        android:textColor="@color/white"
         android:layout_marginTop="10dp"
         android:singleLine="false"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,6 +105,7 @@
         android:layout_width="0dp"
         android:fontFamily="@font/lato"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="20dp"
         android:text="Phone:"
@@ -120,6 +117,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
+        android:textColor="@color/white"
         android:fontFamily="@font/crimson_text"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"

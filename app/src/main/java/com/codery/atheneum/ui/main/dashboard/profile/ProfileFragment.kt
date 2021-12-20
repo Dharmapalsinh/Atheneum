@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import coil.load
 import com.codery.atheneum.R
 import com.codery.atheneum.databinding.FragmentProfileBinding
+import com.codery.atheneum.ui.login.LoginActivity
 import com.codery.atheneum.ui.main.MainActivity
 import com.codery.atheneum.ui.main.MainViewModel
 import com.codery.atheneum.ui.main.dashboard.DashboardFragmentDirections
@@ -69,7 +70,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
         btnLogout.setOnClickListener {
             signOut()
-            val  intent= Intent(requireContext(), MainActivity::class.java)
+            val  intent= Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
         }

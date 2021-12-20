@@ -7,7 +7,6 @@
     android:background="@color/dark80"
     tools:context=".ui.login.LogInFragment">
 
-
     <Button
         android:id="@+id/btn_signIn"
         android:layout_width="wrap_content"
@@ -15,55 +14,65 @@
         android:backgroundTint="@color/green"
         android:drawableEnd="@drawable/ic_google"
         android:fontFamily="@font/crimson_text"
+        android:letterSpacing="0.04"
+        android:layout_marginTop="40dp"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="12dp"
         android:text="Sign In with google "
         android:textSize="18sp"
-        android:paddingVertical="12dp"
-        android:paddingHorizontal="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.434" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_Atheneum"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/txt_Atheneum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="40dp"
         android:fontFamily="@font/andada"
+        android:letterSpacing="0.04"
         android:text="Atheneum"
         android:textColor="@color/white"
         android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_signIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/lato"
+        android:letterSpacing="0.04"
         android:text="Connect with your library made easy"
         android:textColor="@color/white"
         android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_Atheneum" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_signIn" />
 
-        <FrameLayout
-            android:id="@+id/login_progress"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#66000000"
-            android:elevation="4dp">
 
-            <com.google.android.material.progressindicator.CircularProgressIndicator
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:indeterminate="true" />
+            <FrameLayout
+                android:id="@+id/login_progress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#66000000"
+                android:elevation="4dp">
 
-        </FrameLayout>
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminate="true" />
+
+            </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
