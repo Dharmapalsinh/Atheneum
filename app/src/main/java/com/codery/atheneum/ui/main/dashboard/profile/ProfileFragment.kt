@@ -27,7 +27,6 @@ import com.manavtamboli.axion.ui.toast
 
 class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileBinding::class.java) {
 
-    //TODO:Round Profile image
     private val auth: FirebaseAuth = Firebase.auth
     private val googleSignInClient: GoogleSignInClient by lazy { GoogleSignIn.getClient(requireContext(), gso) }
     private val gso by lazy {
