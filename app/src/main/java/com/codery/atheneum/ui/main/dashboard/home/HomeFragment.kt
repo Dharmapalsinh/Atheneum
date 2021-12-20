@@ -1,21 +1,28 @@
 package com.codery.atheneum.ui.main.dashboard.home
 
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import coil.load
+import com.codery.atheneum.data.repos.AllBooksRepo
 import com.codery.atheneum.databinding.FragmentHomeBinding
 import com.codery.atheneum.databinding.ItemGenreBinding
 import com.codery.atheneum.databinding.ItemNewlyCatalogueBinding
 import com.codery.atheneum.models.Book
 import com.codery.atheneum.models.Genre
 import com.codery.atheneum.ui.main.MainViewModel
+import com.codery.atheneum.ui.main.books.BooksViewModel
 import com.codery.atheneum.ui.main.dashboard.DashboardFragmentDirections
 import com.manavtamboli.axion.binding.AxionAdapter
 import com.manavtamboli.axion.binding.BindingFragment
+import com.manavtamboli.axion.lifecycle.AxionFactory
 import com.manavtamboli.axion.lifecycle.flows
 
 class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::class.java){
 
     private val mainViewModel : MainViewModel by activityViewModels()
+    private val viewModel : BooksViewModel by viewModels { AxionFactory<BooksViewModel, AllBooksRepo>(mainViewModel.booksRepo) }
+
 
     private val genreAdapter by AxionAdapter(ItemGenreBinding::class.java, Genre.Companion.Diff){
         onBind {
@@ -49,6 +56,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::c
     }
 
     override fun FragmentHomeBinding.initialize() {
+//        binding.searchBooks.doAfterTextChanged {
+//            viewModel.updateQuery(it?.toString() ?: "")
+//        }
         txtCatAllGenre.setOnClickListener {
             mainViewModel.navigate(DashboardFragmentDirections.viewAllGenres())
         }
@@ -64,3 +74,4 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::c
         this.recyclerRecentlyAdded.adapter = booksAdapter
     }
 }
+

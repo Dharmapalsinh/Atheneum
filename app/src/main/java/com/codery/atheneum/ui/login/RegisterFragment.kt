@@ -26,14 +26,7 @@ import kotlinx.coroutines.launch
 class RegisterFragment : BindingFragment<FragmentRegisterBinding>(FragmentRegisterBinding::class.java) {
 
     private val viewModel : RegisterViewModel by viewModels()
-    private val auth: FirebaseAuth = Firebase.auth
-    private val googleSignInClient: GoogleSignInClient by lazy { GoogleSignIn.getClient(requireContext(), gso) }
-    private val gso by lazy {
-        GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-    }
+
 
     init {
         lifecycleScope.launch {
@@ -56,11 +49,7 @@ class RegisterFragment : BindingFragment<FragmentRegisterBinding>(FragmentRegist
         }
     }
 
-    private fun signOut(){
-        auth.signOut()
-        googleSignInClient.signOut()
-        findNavController().navigate(R.id.action_registerFragment_to_logInFragment)
-    }
+
 
     override fun FragmentRegisterBinding.initialize() {
 
@@ -69,9 +58,7 @@ class RegisterFragment : BindingFragment<FragmentRegisterBinding>(FragmentRegist
             viewModel.state.value = RegistrationState.Loading
         }
 
-        btnSignOut.setOnClickListener {
-            signOut()
-        }
+
 
 
     }

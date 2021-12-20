@@ -99,9 +99,9 @@ class LogInFragment : BindingFragment<FragmentLogInBinding>(FragmentLogInBinding
             signIn()
             viewModel.state.value = LoginState.Loading
         }
-        btnSignOut.setOnClickListener {
-            signOut()
-        }
+//        btnSignOut.setOnClickListener {
+//            signOut()
+//        }
     }
 }
 

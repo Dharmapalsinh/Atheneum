@@ -1,14 +1,22 @@
 package com.codery.atheneum.ui.main.dashboard.profile
 
+import android.content.Intent
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.findNavController
 import coil.load
+import com.codery.atheneum.R
 import com.codery.atheneum.databinding.FragmentProfileBinding
+import com.codery.atheneum.ui.main.MainActivity
 import com.codery.atheneum.ui.main.MainViewModel
 import com.codery.atheneum.ui.main.dashboard.DashboardFragmentDirections
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.ktx.firestore
@@ -18,7 +26,20 @@ import com.manavtamboli.axion.ui.toast
 
 class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileBinding::class.java) {
 
-    //TODO:Add LogOut button
+    private val auth: FirebaseAuth = Firebase.auth
+    private val googleSignInClient: GoogleSignInClient by lazy { GoogleSignIn.getClient(requireContext(), gso) }
+    private val gso by lazy {
+        GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+    }
+
+    private fun signOut(){
+        auth.signOut()
+        googleSignInClient.signOut()
+//        findNavController().navigate(R.id.action_registerFragment_to_logInFragment)
+    }
     private val viewModel : ProfileViewModel by viewModels()
 
     private val mainViewModel:MainViewModel by activityViewModels()
@@ -44,6 +65,13 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
         imgEditAdd.setOnClickListener {
             mainViewModel.navigate(DashboardFragmentDirections.actionDashboardFragmentToEditProfileFragment())
+        }
+
+        btnLogout.setOnClickListener {
+            signOut()
+            val  intent= Intent(requireContext(), MainActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
         }
 
     }

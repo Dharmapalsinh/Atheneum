@@ -8,7 +8,6 @@
     tools:context=".ui.main.dashboard.profile.ProfileFragment">
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,13 +29,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="64dp"
-            android:letterSpacing="0.04"
             android:fontFamily="@font/andada"
+            android:letterSpacing="0.04"
             android:text="Profile"
             android:textColor="#E9F0F5"
             android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,6 +109,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="64dp"
+            android:text="Log Out"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <FrameLayout
             android:id="@+id/login_progress"
             android:layout_width="match_parent"
@@ -144,8 +151,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="40dp"
-            android:letterSpacing="0.04"
             android:fontFamily="@font/lato"
+            android:letterSpacing="0.04"
             android:text="Phone"
             android:textColor="#667188"
             android:textSize="16sp"
