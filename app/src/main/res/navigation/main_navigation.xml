@@ -71,7 +71,7 @@
 <!--            android:id="@+id/all_to_book"-->
 <!--            app:destination="@id/bookViewerFragment" />-->
 <!--    </fragment>-->
-    <fragment
+    <dialog
         android:id="@+id/issuedBookViewerFragment"
         android:name="com.codery.atheneum.ui.main.dashboard.issued.IssuedBookViewerFragment"
         android:label="fragment_issued_book_viewer"
@@ -79,12 +79,19 @@
         <action
             android:id="@+id/issued_to_book"
             app:destination="@id/bookViewerFragment" />
-    </fragment>
+        <argument
+            android:name="issuedBook"
+            app:argType="com.codery.atheneum.models.IssuedBook" />
+    </dialog>
     <fragment
         android:id="@+id/allBooksFragment2"
         android:name="com.codery.atheneum.ui.main.books.AllBooksFragment"
         android:label="fragment_all_books2"
-        tools:layout="@layout/fragment_all_books2" />
+        tools:layout="@layout/fragment_all_books2" >
+        <action
+            android:id="@+id/action_allBooksFragment2_to_bookViewerFragment"
+            app:destination="@id/bookViewerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.codery.atheneum.ui.main.dashboard.profile.EditProfileFragment"

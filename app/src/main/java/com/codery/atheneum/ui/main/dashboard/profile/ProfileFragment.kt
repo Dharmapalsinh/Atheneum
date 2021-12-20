@@ -5,6 +5,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import coil.load
 import com.codery.atheneum.databinding.FragmentProfileBinding
 import com.codery.atheneum.ui.main.MainViewModel
 import com.codery.atheneum.ui.main.dashboard.DashboardFragmentDirections
@@ -18,12 +19,12 @@ import com.manavtamboli.axion.ui.toast
 class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileBinding::class.java) {
 
     //TODO:Add LogOut button
-    //TODO:Add Profile Photo of user
     private val viewModel : ProfileViewModel by viewModels()
 
     private val mainViewModel:MainViewModel by activityViewModels()
 
     override fun FragmentProfileBinding.initialize() {
+        profileImage.load(Firebase.auth.currentUser?.photoUrl)
         viewModel.user.observe(viewLifecycleOwner) {
             it ?: return@observe
             txtPhoneNumber.text = it.phone
@@ -60,7 +61,6 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
         val user: MutableLiveData<ProfileUser?> = MutableLiveData(null)
         val state : MutableLiveData<State> = MutableLiveData(State.Idle)
-
 
         init {
             listenForRealtimeUpdates()

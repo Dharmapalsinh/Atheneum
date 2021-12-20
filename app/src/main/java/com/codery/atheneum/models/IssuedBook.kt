@@ -1,17 +1,20 @@
 package com.codery.atheneum.models
 
+import android.os.Parcelable
 import androidx.annotation.ColorRes
 import androidx.recyclerview.widget.DiffUtil
 import com.codery.atheneum.R
 import com.codery.atheneum.data.repos.AllBooksRepo
+import com.codery.atheneum.ui.main.dashboard.issued.AtheneumDateTimeFormatter
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentSnapshot
 import com.manavtamboli.firefly.firestore.Transformer
 import com.manavtamboli.firefly.toLocalDate
+import kotlinx.parcelize.Parcelize
 import java.time.LocalDate
 
 
-sealed class IssuedBook {
+sealed class IssuedBook : Parcelable {
 
     abstract val issueId : String
     abstract val book : Book
@@ -22,6 +25,15 @@ sealed class IssuedBook {
     abstract val title : String
     abstract val backgroundColor : Int
 
+    fun penalty() : String? = if (this is Overdue) "₹${penalty}" else null
+
+    val formattedIssuedOn : String get() = issuedOn.format(AtheneumDateTimeFormatter)
+
+    val formattedDueOn : String get() = dueOn.format(AtheneumDateTimeFormatter)
+
+    val formattedSubmittedOn : String? get() = submittedOn?.format(AtheneumDateTimeFormatter)
+
+    @Parcelize
     data class Submitted(
         override val issueId: String,
         override val book : Book,
@@ -36,6 +48,7 @@ sealed class IssuedBook {
         override val backgroundColor = R.color.green
     }
 
+    @Parcelize
     data class Pending(
         override val issueId: String,
         override val book : Book,
@@ -51,6 +64,7 @@ sealed class IssuedBook {
         override val backgroundColor = R.color.orange
     }
 
+    @Parcelize
     data class Overdue(
         override val issueId: String,
         override val book : Book,

@@ -19,7 +19,6 @@ import kotlinx.coroutines.flow.combine
 
 class AllBooksFragment : BindingFragment<FragmentAllBooks2Binding>(FragmentAllBooks2Binding::class.java) {
 
-    //TODO: Onclick on books open bookviewer
     private val mainViewModel : MainViewModel by activityViewModels()
     private val viewModel : BooksViewModel by viewModels { AxionFactory<BooksViewModel, AllBooksRepo>(mainViewModel.booksRepo) }
 
@@ -28,6 +27,9 @@ class AllBooksFragment : BindingFragment<FragmentAllBooks2Binding>(FragmentAllBo
             txtBookname.text = it.name
             txtAuthor.text = it.author
             itemBookImage.load(it.image)
+        }
+        onItemClick {
+            mainViewModel.navigate(AllBooksFragmentDirections.actionAllBooksFragment2ToBookViewerFragment(it))
         }
     }
 

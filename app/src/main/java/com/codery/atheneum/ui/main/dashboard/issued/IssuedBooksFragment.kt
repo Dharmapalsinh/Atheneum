@@ -11,6 +11,7 @@ import com.codery.atheneum.databinding.ItemIssueBookBinding
 import com.codery.atheneum.models.DiffIssuedBook
 import com.codery.atheneum.models.IssuedBook
 import com.codery.atheneum.ui.main.MainViewModel
+import com.codery.atheneum.ui.main.dashboard.DashboardFragmentDirections
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -21,6 +22,7 @@ import com.manavtamboli.axion.lifecycle.flows
 import com.manavtamboli.firefly.firestore.realtime.realtimeDocuments
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
+import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 class IssuedBooksFragment : BindingFragment<FragmentIssuedBooksBinding>(FragmentIssuedBooksBinding::class.java){
@@ -36,6 +38,9 @@ class IssuedBooksFragment : BindingFragment<FragmentIssuedBooksBinding>(Fragment
             itemIssuedName.text = it.book.name
             itemIssuedStatus.text = it.title
             itemIssuedStatus.setBackgroundColor(requireContext().getColor(it.backgroundColor))
+        }
+        onItemClick {
+            mainViewModel.navigate(DashboardFragmentDirections.viewIssuedBook(it))
         }
     }
 
@@ -53,6 +58,8 @@ class IssuedBooksFragment : BindingFragment<FragmentIssuedBooksBinding>(Fragment
 }
 
 val AtheneumDateTimeFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy")
+
+fun LocalDate.toFormattedDate() : String = format(AtheneumDateTimeFormatter)
 
 class IssuedBooksViewModel(booksRepo: AllBooksRepo) : ViewModel(){
 
