@@ -12,22 +12,46 @@
         tools:layout="@layout/fragment_dashboard" >
         <action
             android:id="@+id/view_all_genres"
-            app:destination="@id/genresFragment" />
+            app:destination="@id/genresFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/hold"
+            app:popEnterAnim="@anim/hold"
+            app:popExitAnim="@anim/slide_to_bottom" />
         <action
             android:id="@+id/view_genre"
-            app:destination="@id/genreViewerFragment" />
+            app:destination="@id/genreViewerFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/hold"
+            app:popEnterAnim="@anim/hold"
+            app:popExitAnim="@anim/slide_to_bottom" />
         <action
             android:id="@+id/view_all_books"
-            app:destination="@id/allBooksFragment2" />
+            app:destination="@id/allBooksFragment2"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/hold"
+            app:popEnterAnim="@anim/hold"
+            app:popExitAnim="@anim/slide_to_bottom" />
         <action
             android:id="@+id/view_issued_book"
-            app:destination="@id/issuedBookViewerFragment" />
+            app:destination="@id/issuedBookViewerFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/hold"
+            app:popEnterAnim="@anim/hold"
+            app:popExitAnim="@anim/slide_to_bottom" />
         <action
             android:id="@+id/view_book"
-            app:destination="@id/bookViewerFragment" />
+            app:destination="@id/bookViewerFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/hold"
+            app:popEnterAnim="@anim/hold"
+            app:popExitAnim="@anim/slide_to_bottom" />
         <action
             android:id="@+id/action_dashboardFragment_to_editProfileFragment"
-            app:destination="@id/editProfileFragment" />
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/hold"
+            app:popEnterAnim="@anim/hold"
+            app:popExitAnim="@anim/slide_to_bottom" />
         <!--        <action-->
 <!--            android:id="@+id/action_dashboardFragment_to_allBooksFragment2"-->
 <!--            app:destination="@id/allBooksFragment2" />-->
@@ -39,7 +63,11 @@
         tools:layout="@layout/fragment_genres" >
         <action
             android:id="@+id/genres_to_genre"
-            app:destination="@id/genreViewerFragment" />
+            app:destination="@id/genreViewerFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/hold"
+            app:popEnterAnim="@anim/hold"
+            app:popExitAnim="@anim/slide_to_bottom" />
     </fragment>
     <fragment
         android:id="@+id/genreViewerFragment"
@@ -48,7 +76,11 @@
         tools:layout="@layout/fragment_genre_viewer" >
         <action
             android:id="@+id/genre_to_book"
-            app:destination="@id/bookViewerFragment" />
+            app:destination="@id/bookViewerFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/hold"
+            app:popEnterAnim="@anim/hold"
+            app:popExitAnim="@anim/slide_to_bottom" />
         <argument
             android:name="genre"
             app:argType="com.codery.atheneum.models.Genre" />
@@ -78,7 +110,11 @@
         tools:layout="@layout/fragment_issued_book_viewer" >
         <action
             android:id="@+id/issued_to_book"
-            app:destination="@id/bookViewerFragment" />
+            app:destination="@id/bookViewerFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/hold"
+            app:popEnterAnim="@anim/hold"
+            app:popExitAnim="@anim/slide_to_bottom" />
         <argument
             android:name="issuedBook"
             app:argType="com.codery.atheneum.models.IssuedBook" />
@@ -90,7 +126,11 @@
         tools:layout="@layout/fragment_all_books2" >
         <action
             android:id="@+id/action_allBooksFragment2_to_bookViewerFragment"
-            app:destination="@id/bookViewerFragment" />
+            app:destination="@id/bookViewerFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/hold"
+            app:popEnterAnim="@anim/hold"
+            app:popExitAnim="@anim/slide_to_bottom" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
