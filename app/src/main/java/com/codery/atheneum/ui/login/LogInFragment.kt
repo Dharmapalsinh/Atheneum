@@ -1,7 +1,6 @@
 package com.codery.atheneum.ui.login
 
 import android.content.Intent
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.*
@@ -19,8 +18,10 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.manavtamboli.axion.binding.BindingFragment
+import com.manavtamboli.axion.ui.navBarColor
+import com.manavtamboli.axion.ui.systemBarsColor
+import com.manavtamboli.axion.ui.toast
 import com.manavtamboli.firefly.auth.GoogleSignInContract
-import com.manavtamboli.firefly.firestore.single.fetch
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -50,6 +51,7 @@ class LogInFragment : BindingFragment<FragmentLogInBinding>(FragmentLogInBinding
     }
 
     init {
+        systemBarsColor(R.color.dark80)
         lifecycleScope.launch {
             repeatOnLifecycle(STARTED){
                 viewModel.state.collect {
@@ -57,7 +59,7 @@ class LogInFragment : BindingFragment<FragmentLogInBinding>(FragmentLogInBinding
                     when(it) {
                         is LoginState.Failed -> {
                             // display failed message
-                            it.message
+                            toast(it.message)
                         }
                         LoginState.Registered -> {
                             // navigate to main activity
@@ -89,19 +91,11 @@ class LogInFragment : BindingFragment<FragmentLogInBinding>(FragmentLogInBinding
         launcher.launch(googleSignInClient)
     }
 
-    private fun signOut(){
-        auth.signOut()
-        googleSignInClient.signOut()
-    }
-
     override fun FragmentLogInBinding.initialize() {
         btnSignIn.setOnClickListener {
             signIn()
             viewModel.state.value = LoginState.Loading
         }
-//        btnSignOut.setOnClickListener {
-//            signOut()
-//        }
     }
 }
 
@@ -118,7 +112,7 @@ class LoginViewModel : ViewModel(){
                 fetchUser()
             }
             .addOnFailureListener {
-                state.value = LoginState.Failed("asdfas")
+                state.value = LoginState.Failed("Cannot sign in!")
             }
     }
 
@@ -131,7 +125,7 @@ class LoginViewModel : ViewModel(){
                 state.value = if (it.exists()) LoginState.Registered else LoginState.Unregistered
             }
             .addOnFailureListener {
-                state.value = LoginState.Failed("asdbfiausdbf")
+                state.value = LoginState.Failed("Cannot get user!")
             }
     }
 }

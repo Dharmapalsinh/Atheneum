@@ -16,12 +16,19 @@ import com.codery.atheneum.databinding.ActivityMainBinding
 import com.codery.atheneum.ui.main.dashboard.DashboardFragmentDirections
 import com.manavtamboli.axion.binding.BindingActivity
 import com.manavtamboli.axion.navigation.findNavController
+import com.manavtamboli.axion.ui.navBarColor
+import com.manavtamboli.axion.ui.statusBarColor
 
 class MainActivity : BindingActivity<ActivityMainBinding>(ActivityMainBinding::class.java){
 
     private val viewModel : MainViewModel by viewModels()
 
     private val navController by lazy { supportFragmentManager.findNavController(R.id.main_nav_host) }
+
+    init {
+        navBarColor(R.color.white)
+        statusBarColor(R.color.dark)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

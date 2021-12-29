@@ -117,36 +117,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
-        android:text="Crowdedness"
-        android:fontFamily="@font/lato"
-        android:letterSpacing="0.04"
-        android:textColor="#667188"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_lib_today" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView13"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:text="Crowdedness"-->
+<!--        android:fontFamily="@font/lato"-->
+<!--        android:letterSpacing="0.04"-->
+<!--        android:textColor="#667188"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txt_lib_today" />-->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="16dp"
-        android:text="Available"
-        android:letterSpacing="0.04"
-        android:gravity="center"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="12dp"
-        android:textColor="#ffffff"
-        android:background="#14CC9E"
-        android:fontFamily="@font/lato"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"/>
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginHorizontal="24dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="Available"-->
+<!--        android:letterSpacing="0.04"-->
+<!--        android:gravity="center"-->
+<!--        android:paddingHorizontal="24dp"-->
+<!--        android:paddingVertical="12dp"-->
+<!--        android:textColor="#ffffff"-->
+<!--        android:background="#14CC9E"-->
+<!--        android:fontFamily="@font/lato"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView13"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

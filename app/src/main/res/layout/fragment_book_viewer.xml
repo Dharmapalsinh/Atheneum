@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -22,22 +23,14 @@
 
         <ImageView
             android:id="@+id/img_arrow_back_viewer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="center"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
             android:layout_marginStart="34dp"
             android:layout_marginTop="52dp"
             android:src="@drawable/ic_baseline_arrow_back_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/book_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="36dp"
-            android:src="@drawable/icon_red_save"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -47,6 +40,7 @@
             android:layout_marginHorizontal="100dp"
             android:layout_marginTop="150dp"
             android:src="@mipmap/ic_launcher"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -90,14 +84,15 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerBookViewerAvail"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:layout_constrainedWidth="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/avail_book_viewer_author"
             app:spanCount="2"
@@ -178,6 +173,42 @@
             app:layout_constraintTop_toBottomOf="@+id/book_length" />
 
         <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:letterSpacing="0.04"
+            android:text="Availability"
+            android:textColor="#667188"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/book_desc" />
+
+
+        <TextView
+            android:id="@+id/book_avail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="48dp"
+            android:background="#14CC9E"
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:letterSpacing="0.04"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:text="Available"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
             android:id="@+id/book_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -193,6 +224,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

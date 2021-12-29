@@ -112,14 +112,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="24dp"
             android:letterSpacing="0.04"
             android:text="Newly Added"
             android:textColor="#667188"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/home_genre_list" />
-        <!--    android:layout_marginTop="50dp"-->
+
         <TextView
             android:id="@+id/txt_cat_all_books"
             android:layout_width="wrap_content"
@@ -130,22 +130,24 @@
             android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:letterSpacing="0.04"
-            android:layout_marginTop="52dp"
             android:text="All Books"
             android:textColor="#1B7695"
             android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView17"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_genre_list" />
+            app:layout_constraintTop_toTopOf="@+id/textView17" />
 
         <!--    android:layout_marginTop="34dp"-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerRecentlyAdded"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="34dp"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView17"
@@ -153,5 +155,3 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
-
-<!--</ScrollView>-->

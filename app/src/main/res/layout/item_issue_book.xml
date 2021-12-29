@@ -10,6 +10,7 @@
         android:id="@+id/item_issued_img"
         android:layout_width="104dp"
         android:layout_height="135dp"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@mipmap/ic_launcher"/>
